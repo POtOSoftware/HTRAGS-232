@@ -1,0 +1,415 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Assets/Comic Sans.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Levels/Credits/Windows 98 Extended.mp3" type="AudioStream" id=2]
+[ext_resource path="res://Levels/Credits/Credits.gd" type="Script" id=3]
+
+[sub_resource type="Environment" id=1]
+background_mode = 1
+fog_enabled = true
+fog_color = Color( 0, 0, 0, 1 )
+fog_sun_color = Color( 0, 0, 0, 1 )
+fog_depth_end = 14.0
+
+[sub_resource type="SpatialMaterial" id=2]
+emission_enabled = true
+emission = Color( 1, 1, 1, 1 )
+emission_energy = 1.0
+emission_operator = 0
+emission_on_uv2 = false
+
+[sub_resource type="CubeMesh" id=3]
+material = SubResource( 2 )
+size = Vector3( 0.025, 0.025, 0.025 )
+
+[sub_resource type="DynamicFont" id=4]
+font_data = ExtResource( 1 )
+
+[sub_resource type="Theme" id=5]
+default_font = SubResource( 4 )
+
+[sub_resource type="DynamicFont" id=6]
+outline_size = 2
+outline_color = Color( 1, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=7]
+resource_name = "Credits"
+length = 20.0
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Title:percent_visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.7, 1.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, 1.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../AudioStreamPlayer:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("Title:rect_position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 61.5, -0.25, 0, 0.25, 0, 61.5, -0.25, 0, 0.25, 0, 61.5, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 2, 5 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("Title:rect_position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 108.5, -0.25, 0, 0.25, 0, 108.5, -0.25, 0, 0.25, 0, -30.171, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 2, 5 )
+}
+tracks/4/type = "bezier"
+tracks/4/path = NodePath("Created By:rect_position:x")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"points": PoolRealArray( 111, -0.25, 0, 0.25, 0, 111, -0.25, 0, 0.25, 0, 111, -0.25, 0, 0.25, 0, 111, -0.25, 0, 0.25, 0, 111, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 5, 6, 13.1, 13.5 )
+}
+tracks/5/type = "bezier"
+tracks/5/path = NodePath("Created By:rect_position:y")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"points": PoolRealArray( 300, -0.25, 0, 0.25, 0, 300, -0.25, 0, 0.25, 0, 95.5, -0.25, 0, 0.25, 0, 95.5, -0.25, 0, 0.25, 0, -60, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 5, 6, 13.1, 13.5 )
+}
+tracks/6/type = "bezier"
+tracks/6/path = NodePath("Suggested Some:rect_position:x")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"points": PoolRealArray( 64.5, -0.25, 0, 0.25, 0, 64.5, -0.25, 0, 0.25, 0, 64.5, -0.25, 0, 0.25, 0, 64.5, -0.25, 0, 0.25, 0, 64.5, -0.25, 0, 0.25, 0, 64.5, -0.25, 0, 0.25, 0, 64.5, -0.25, 0, 0.25, 0, 64.5, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 8, 12, 12.5, 13, 13.3, 16.9, 17.2 )
+}
+tracks/7/type = "bezier"
+tracks/7/path = NodePath("Suggested Some:rect_position:y")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"points": PoolRealArray( 300, -0.25, 0, 0.25, 0, 300, -0.25, 0, 0.25, 0, 190, -0.25, 0, 0.25, 0, 190, -0.25, 0, 0.25, 0, 225, -0.25, 0, 0.25, 0, 95.5, -0.25, 0, 0.25, 0, 95.5, -0.25, 0, 0.25, 0, 300, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 8, 12, 12.5, 13, 13.3, 16.9, 17.2 )
+}
+tracks/8/type = "bezier"
+tracks/8/path = NodePath("Created By:rect_rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, -25, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 13.15, 13.4 )
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Yep:rect_position")
+tracks/9/interp = 2
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 16, 16.2, 16.4, 16.8, 16.9, 17.2, 17.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 104.5, -30 ), Vector2( 104.5, -30 ), Vector2( 104.5, 80 ), Vector2( 104.5, -30 ), Vector2( 104.5, -30 ), Vector2( 104.5, 80 ), Vector2( 104.5, 80 ), Vector2( 104.5, 108.5 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Yep:rect_rotation")
+tracks/10/interp = 2
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 16.2, 16.4, 16.8, 16.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, -50.0, -50.0, 0.0 ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Fade:modulate")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0, 19, 20 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Title:percent_visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../AudioStreamPlayer:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("Title:rect_position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 61.5, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("Title:rect_position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 108.5, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/4/type = "bezier"
+tracks/4/path = NodePath("Created By:rect_position:x")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"points": PoolRealArray( 111, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/5/type = "bezier"
+tracks/5/path = NodePath("Created By:rect_position:y")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"points": PoolRealArray( 300, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/6/type = "bezier"
+tracks/6/path = NodePath("Suggested Some:rect_position:x")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"points": PoolRealArray( 64.5, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/7/type = "bezier"
+tracks/7/path = NodePath("Suggested Some:rect_position:y")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"points": PoolRealArray( 300, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/8/type = "bezier"
+tracks/8/path = NodePath("Created By:rect_rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Yep:rect_position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 104.5, -30 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Yep:rect_rotation")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Fade:modulate")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+
+[node name="Credits" type="Spatial"]
+script = ExtResource( 3 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 1 )
+
+[node name="Camera" type="Camera" parent="."]
+current = true
+
+[node name="CPUParticles" type="CPUParticles" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10.9862 )
+amount = 512
+lifetime = 20.0
+preprocess = 6.0
+mesh = SubResource( 3 )
+emission_shape = 2
+emission_box_extents = Vector3( 1, 1, 1 )
+direction = Vector3( 0, 0, 1 )
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 1.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+bus = "Music"
+
+[node name="Credits" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = SubResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="Credits"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -98.5
+margin_top = -11.5
+margin_right = 98.5
+margin_bottom = 11.5754
+custom_fonts/font = SubResource( 6 )
+text = "How To Rob A Gas Station"
+align = 1
+valign = 1
+percent_visible = 0.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Created By" type="Label" parent="Credits"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -49.0
+margin_top = 180.0
+margin_right = 49.0001
+margin_bottom = 229.0
+text = "Created By:
+Kyle Kailihiwa"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Suggested Some" type="Label" parent="Credits"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -95.5
+margin_top = 180.0
+margin_right = 95.5
+margin_bottom = 229.0
+text = "Suggested Some Endings:
+Retroboy Studios"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Yep" type="Label" parent="Credits"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -55.5
+margin_top = -150.0
+margin_right = 60.5
+margin_bottom = -126.999
+text = "Yep, that's it"
+align = 1
+valign = 1
+
+[node name="Fade" type="ColorRect" parent="Credits"]
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Credits"]
+anims/Credits = SubResource( 7 )
+anims/RESET = SubResource( 8 )
+
+[connection signal="animation_finished" from="Credits/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

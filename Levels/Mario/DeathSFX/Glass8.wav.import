@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Glass8.wav-bb7220ff2b7b77c2217e08715f94a387.sample"
+
+[deps]
+
+source_file="res://Levels/Mario/DeathSFX/Glass8.wav"
+dest_files=[ "res://.import/Glass8.wav-bb7220ff2b7b77c2217e08715f94a387.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

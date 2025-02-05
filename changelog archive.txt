@@ -1,0 +1,16 @@
+HOTFIX 2.2.2 (AKA The Vita Update):
+
+    This hotfix is only available for the Vita port
+    Just changes some things to make it work nicely on the Vita (analog stick support, remove PC specific settings, etc.)
+
+HOTFIX 2.2.1 (I'm hoping this is the last update):
+
+    You no longer have the gun after leaving the house even if you didn't grab it
+    Lowered exterior scene brightness on web
+
+UPDATE 2.2 (Yep, there were MORE bugs):
+
+    You can return to the main menu at any time
+    Fixed version string
+    Debug Menu text only appears when you are in debug mode
+    Fixed step ordering when you leave without a gun

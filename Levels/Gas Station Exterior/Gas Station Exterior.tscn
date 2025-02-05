@@ -1,0 +1,190 @@
+[gd_scene load_steps=27 format=2]
+
+[ext_resource path="res://Levels/Road/Sky.png" type="Texture" id=1]
+[ext_resource path="res://Levels/Road/Grass.png" type="Texture" id=2]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Levels/Gas Station Exterior/Concrete.png" type="Texture" id=4]
+[ext_resource path="res://Prefabs/Gas Pump/Gas Pump.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Levels/Gas Station Exterior/SecretEnding.gd" type="Script" id=6]
+[ext_resource path="res://Prefabs/Gas Station Sign/Gas Station Sign.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Levels/Gas Station Exterior/SecretEnding2.gd" type="Script" id=8]
+[ext_resource path="res://Levels/Gas Station Exterior/StaticBody.gd" type="Script" id=9]
+[ext_resource path="res://Levels/Gas Station Exterior/Front.png" type="Texture" id=13]
+[ext_resource path="res://Levels/Gas Station Exterior/Wall.png" type="Texture" id=14]
+[ext_resource path="res://Levels/Gas Station Exterior/Door.png" type="Texture" id=15]
+[ext_resource path="res://Levels/Gas Station Exterior/Door.gd" type="Script" id=16]
+[ext_resource path="res://Levels/Gas Station Exterior/Gas Station Exterior.gd" type="Script" id=17]
+
+[sub_resource type="PanoramaSky" id=4]
+panorama = ExtResource( 1 )
+
+[sub_resource type="Environment" id=5]
+background_mode = 2
+background_sky = SubResource( 4 )
+ambient_light_energy = 5.0
+
+[sub_resource type="SpatialMaterial" id=6]
+albedo_color = Color( 0, 0.411765, 0, 1 )
+albedo_texture = ExtResource( 2 )
+metallic_specular = 0.0
+uv1_scale = Vector3( -0.05, 0, -0.05 )
+uv1_triplanar = true
+
+[sub_resource type="SpatialMaterial" id=7]
+albedo_texture = ExtResource( 4 )
+uv1_scale = Vector3( 0.25, 1, 0.25 )
+uv1_triplanar = true
+
+[sub_resource type="BoxShape" id=9]
+extents = Vector3( 1.71003, 1.45142, 1 )
+
+[sub_resource type="BoxShape" id=13]
+extents = Vector3( 500, 5, 500 )
+
+[sub_resource type="BoxShape" id=10]
+extents = Vector3( 559, 3, 1 )
+
+[sub_resource type="BoxShape" id=8]
+extents = Vector3( 1, 6, 2 )
+
+[sub_resource type="SpatialMaterial" id=14]
+albedo_texture = ExtResource( 13 )
+uv1_scale = Vector3( -1, 1, 1 )
+
+[sub_resource type="SpatialMaterial" id=16]
+albedo_texture = ExtResource( 14 )
+uv1_scale = Vector3( 1, 0.2, 0.2 )
+uv1_triplanar = true
+
+[sub_resource type="SpatialMaterial" id=15]
+albedo_texture = ExtResource( 4 )
+uv1_scale = Vector3( 10, 10, 1 )
+
+[sub_resource type="SpatialMaterial" id=17]
+flags_transparent = true
+albedo_texture = ExtResource( 15 )
+
+[node name="Gas Station Exterior" type="Spatial"]
+script = ExtResource( 17 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 5 )
+
+[node name="Grass" type="CSGBox" parent="."]
+use_collision = true
+width = 1000.0
+height = 1.0
+depth = 1000.0
+material = SubResource( 6 )
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.368903, 0, -0.929468, 0, 1, 0, 0.929468, 0, 0.368903, 0, 3, 0 )
+
+[node name="Concrete" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.526861, -13.0333 )
+width = 48.5841
+height = 0.002
+depth = 36.8609
+material = SubResource( 7 )
+
+[node name="Gas Pump" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 2.04842, 0.512569, -8.56759 )
+
+[node name="Explosive" type="StaticBody" parent="Gas Pump"]
+script = ExtResource( 9 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Gas Pump/Explosive"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.207819, -6.53072 )
+shape = SubResource( 9 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="Gas Pump/Explosive"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -0.531 )
+shape = SubResource( 9 )
+
+[node name="SecretEnding" type="Spatial" parent="."]
+script = ExtResource( 6 )
+
+[node name="Area" type="Area" parent="SecretEnding"]
+
+[node name="CollisionShape" type="CollisionShape" parent="SecretEnding/Area"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 100, 0 )
+shape = SubResource( 13 )
+
+[node name="SecretEnding2" type="Spatial" parent="."]
+script = ExtResource( 8 )
+
+[node name="Area" type="Area" parent="SecretEnding2"]
+
+[node name="CollisionShape" type="CollisionShape" parent="SecretEnding2/Area"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 200 )
+shape = SubResource( 10 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="SecretEnding2/Area"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, -200 )
+shape = SubResource( 10 )
+
+[node name="CollisionShape3" type="CollisionShape" parent="SecretEnding2/Area"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -200, 4, 0 )
+shape = SubResource( 10 )
+
+[node name="CollisionShape4" type="CollisionShape" parent="SecretEnding2/Area"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 200, 4, 0 )
+shape = SubResource( 10 )
+
+[node name="Gas Station Sign" parent="." instance=ExtResource( 7 )]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, -26, 0, -42 )
+
+[node name="StaticBody" type="StaticBody" parent="Gas Station Sign"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Gas Station Sign/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.33333, 0 )
+shape = SubResource( 8 )
+
+[node name="Gas Station" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.0197, 0, 0 )
+
+[node name="Front" type="CSGBox" parent="Gas Station"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 34.8895, 6.16759, -13 )
+use_collision = true
+height = 29.9145
+depth = 12.7861
+material = SubResource( 14 )
+
+[node name="Front2" type="CSGBox" parent="Gas Station"]
+transform = Transform( -4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, 48.9681, 6.16759, -27.1105 )
+use_collision = true
+height = 29.9145
+depth = 12.7861
+material = SubResource( 16 )
+
+[node name="Front3" type="CSGBox" parent="Gas Station"]
+transform = Transform( -4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, 48.9218, 6.16759, 1.26919 )
+use_collision = true
+height = 29.9145
+depth = 12.7861
+material = SubResource( 16 )
+
+[node name="Front4" type="CSGBox" parent="Gas Station"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 63.0124, 6.16759, -12.9935 )
+use_collision = true
+height = 30.0323
+depth = 12.7861
+material = SubResource( 16 )
+
+[node name="Top" type="CSGBox" parent="Gas Station"]
+transform = Transform( -4.37114e-08, -4.37988e-08, -1, -1, -4.37988e-08, 4.37114e-08, -4.37114e-08, 1.002, -4.37114e-08, 49.0805, 11.6922, -13 )
+use_collision = true
+height = 29.9145
+depth = 29.7402
+material = SubResource( 15 )
+
+[node name="Door" type="CSGBox" parent="Gas Station"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 34.8612, 3.20038, -8.13515 )
+use_collision = true
+height = 8.20213
+depth = 5.8167
+material = SubResource( 17 )
+script = ExtResource( 16 )
+
+[connection signal="body_entered" from="SecretEnding/Area" to="SecretEnding" method="_on_Area_body_entered"]
+[connection signal="body_entered" from="SecretEnding2/Area" to="SecretEnding2" method="_on_Area_body_entered"]

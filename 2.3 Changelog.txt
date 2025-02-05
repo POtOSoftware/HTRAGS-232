@@ -1,0 +1,7 @@
+Added
+	+Pause Menu
+	+Turned a bug into easter egg (it's possible to rob the store multiple times)
+Cool I Guess
+	+Brought over the Android port's loading screen to desktop and Vita
+	+Fix a typo that's been there since day 1 (Step: 9 is now Step 9: as God intended)
+	+Fix the stupid credits

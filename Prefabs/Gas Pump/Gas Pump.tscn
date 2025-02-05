@@ -1,0 +1,140 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Prefabs/Gas Pump/Roof Banner.png" type="Texture" id=1]
+[ext_resource path="res://Prefabs/Gas Pump/Pillar.png" type="Texture" id=2]
+[ext_resource path="res://Prefabs/Gas Pump/GasPump.png" type="Texture" id=3]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_color = Color( 0.584314, 0.584314, 0.584314, 1 )
+albedo_texture = ExtResource( 2 )
+uv1_scale = Vector3( 1.091, 1, 1 )
+
+[sub_resource type="SpatialMaterial" id=3]
+uv1_scale = Vector3( 0.963, 1.528, 1.001 )
+uv1_offset = Vector3( 0.238, -0.503, 0.242 )
+
+[sub_resource type="PlaneMesh" id=4]
+size = Vector2( 5.5, 0.7 )
+
+[sub_resource type="SpatialMaterial" id=7]
+albedo_texture = ExtResource( 1 )
+uv1_scale = Vector3( 1.1, 1.319, 1 )
+uv1_offset = Vector3( 0, 0.5, 0 )
+uv1_triplanar = true
+
+[sub_resource type="SpatialMaterial" id=5]
+albedo_texture = ExtResource( 1 )
+uv1_scale = Vector3( -1.1, 1.319, 1 )
+uv1_offset = Vector3( 0, 0.5, 0 )
+uv1_triplanar = true
+
+[sub_resource type="SpatialMaterial" id=6]
+albedo_texture = ExtResource( 1 )
+uv1_scale = Vector3( 1, 1.319, 1.032 )
+uv1_offset = Vector3( 0, 0.5, 0 )
+uv1_triplanar = true
+
+[sub_resource type="SpatialMaterial" id=8]
+albedo_texture = ExtResource( 1 )
+uv1_scale = Vector3( 1, 1.319, -1.032 )
+uv1_offset = Vector3( 0, 0.5, 0 )
+uv1_triplanar = true
+
+[sub_resource type="SpatialMaterial" id=2]
+params_cull_mode = 2
+albedo_texture = ExtResource( 3 )
+uv1_scale = Vector3( 0.309, 0.325, 0.397 )
+uv1_offset = Vector3( 0, 0.5, 0.5 )
+uv1_triplanar = true
+
+[node name="Gas Pump" type="Spatial"]
+
+[node name="Pillar" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, -10 )
+use_collision = true
+width = 0.75
+height = 7.0
+depth = 0.75
+material = SubResource( 1 )
+
+[node name="Pillar2" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, 3 )
+use_collision = true
+width = 0.75
+height = 7.0
+depth = 0.75
+material = SubResource( 1 )
+
+[node name="Pillar3" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, -3.5 )
+use_collision = true
+width = 0.75
+height = 7.0
+depth = 0.75
+material = SubResource( 1 )
+
+[node name="Roof" type="CSGBox" parent="."]
+transform = Transform( 0.998262, 0, 0, 0, 0.998262, 0, 0, 0, 0.998262, 0, 7, -3.46143 )
+width = 5.5
+height = 0.7
+depth = 15.5015
+material = SubResource( 3 )
+
+[node name="Banner" type="CSGMesh" parent="Roof"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 7.75651 )
+mesh = SubResource( 4 )
+material = SubResource( 7 )
+
+[node name="Banner2" type="CSGMesh" parent="Roof"]
+transform = Transform( -1, -8.74228e-08, 3.82137e-15, 0, -4.37114e-08, -1, 8.74228e-08, -1, 4.37114e-08, 0, 0, -7.75485 )
+mesh = SubResource( 4 )
+material = SubResource( 5 )
+
+[node name="Banner3" type="CSGMesh" parent="Roof"]
+transform = Transform( -1.23179e-07, 1, -4.37114e-08, 0, -4.37114e-08, -1, -2.818, -4.37114e-08, 1.91069e-15, 2.756, 0, 0 )
+mesh = SubResource( 4 )
+material = SubResource( 6 )
+
+[node name="Banner4" type="CSGMesh" parent="Roof"]
+transform = Transform( -1.79125e-07, -1, 4.37114e-08, 0, -4.37114e-08, -1, 2.818, -1.49271e-08, 2.66918e-15, -2.75319, 0, 0 )
+mesh = SubResource( 4 )
+material = SubResource( 6 )
+
+[node name="Banner5" type="CSGMesh" parent="Roof"]
+transform = Transform( -1.79125e-07, -1, 4.37114e-08, 0, -4.37114e-08, -1, 2.818, -1.49271e-08, 2.66918e-15, -2.75319, 0, 0 )
+mesh = SubResource( 4 )
+material = SubResource( 8 )
+
+[node name="Pumps" type="Spatial" parent="."]
+
+[node name="Pump" type="CSGBox" parent="Pumps"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1.5, -0.5 )
+use_collision = true
+width = 1.0
+height = 3.0
+depth = 1.5
+material = SubResource( 2 )
+
+[node name="Pump2" type="CSGBox" parent="Pumps"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1.5, -6.5 )
+use_collision = true
+width = 1.0
+height = 3.0
+depth = 1.5
+material = SubResource( 2 )
+
+[node name="Pump3" type="CSGBox" parent="Pumps"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 1.5, -0.5 )
+use_collision = true
+width = 1.0
+height = 3.0
+depth = 1.5
+material = SubResource( 2 )
+
+[node name="Pump4" type="CSGBox" parent="Pumps"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 1.5, -6.5 )
+use_collision = true
+width = 1.0
+height = 3.0
+depth = 1.5
+material = SubResource( 2 )

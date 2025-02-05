@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Sink.wav-d479ed63dd348544a5adfb30575038a9.sample"
+
+[deps]
+
+source_file="res://Levels/House_Part2/Sink.wav"
+dest_files=[ "res://.import/Sink.wav-d479ed63dd348544a5adfb30575038a9.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,540 @@
+[gd_scene load_steps=53 format=2]
+
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Prefabs/alarm clock.glb" type="PackedScene" id=2]
+[ext_resource path="res://Levels/House_Part2/Front Door.gd" type="Script" id=3]
+[ext_resource path="res://Levels/House/Sink.gd" type="Script" id=4]
+[ext_resource path="res://Levels/House/Microwave.gd" type="Script" id=5]
+[ext_resource path="res://Levels/House_Part2/Note.gd" type="Script" id=6]
+[ext_resource path="res://Levels/House_Part2/Rat.gd" type="Script" id=7]
+[ext_resource path="res://Levels/House_Part2/Gun.gd" type="Script" id=8]
+[ext_resource path="res://Levels/House_Part2/GunCock.wav" type="AudioStream" id=9]
+[ext_resource path="res://Levels/House/Note.png" type="Texture" id=10]
+[ext_resource path="res://Levels/House/Table_wood.png" type="Texture" id=11]
+[ext_resource path="res://Levels/House/Flush.wav" type="AudioStream" id=12]
+[ext_resource path="res://Levels/House_Part2/Gun.png" type="Texture" id=13]
+[ext_resource path="res://Levels/House/Wood.png" type="Texture" id=14]
+[ext_resource path="res://Levels/House/Sink.wav" type="AudioStream" id=15]
+[ext_resource path="res://Levels/House/Shitter.png" type="Texture" id=16]
+[ext_resource path="res://Levels/House/Sink.png" type="Texture" id=17]
+[ext_resource path="res://Levels/House/Wall.png" type="Texture" id=18]
+[ext_resource path="res://Levels/House/Microwave.png" type="Texture" id=19]
+[ext_resource path="res://Levels/House/Microwave.wav" type="AudioStream" id=20]
+[ext_resource path="res://Levels/House_Part2/Rat.png" type="Texture" id=21]
+[ext_resource path="res://Levels/House/frontdoor.png" type="Texture" id=22]
+[ext_resource path="res://Prefabs/Rat.tscn" type="PackedScene" id=23]
+[ext_resource path="res://Levels/House/Matress.png" type="Texture" id=24]
+[ext_resource path="res://Levels/House_Part2/Shitter.gd" type="Script" id=25]
+[ext_resource path="res://Levels/House_Part2/Sewer Grate.png" type="Texture" id=26]
+[ext_resource path="res://Levels/House_Part2/SewageGrate.gd" type="Script" id=27]
+[ext_resource path="res://Levels/House_Part2/Secret.mp3" type="AudioStream" id=28]
+[ext_resource path="res://Levels/House_Part2/Pipe.png" type="Texture" id=29]
+[ext_resource path="res://Levels/House_Part2/Pipe.gd" type="Script" id=30]
+[ext_resource path="res://Levels/House_Part2/TechChip.png" type="Texture" id=31]
+[ext_resource path="res://Levels/House_Part2/TechChip.gd" type="Script" id=32]
+[ext_resource path="res://Levels/House_Part2/House2.gd" type="Script" id=33]
+[ext_resource path="res://Levels/House_Part2/Matress.gd" type="Script" id=34]
+[ext_resource path="res://Levels/House_Part2/MoneyStack.png" type="Texture" id=35]
+[ext_resource path="res://Levels/House_Part2/StackOfMoney.gd" type="Script" id=36]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_texture = ExtResource( 14 )
+uv1_scale = Vector3( 0.1, 1, 0.1 )
+uv1_triplanar = true
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_texture = ExtResource( 18 )
+uv1_scale = Vector3( 0.2, 0.2, 0.2 )
+uv1_triplanar = true
+
+[sub_resource type="SpatialMaterial" id=8]
+albedo_texture = ExtResource( 22 )
+
+[sub_resource type="BoxShape" id=3]
+extents = Vector3( 0.276265, 1, 1.24527 )
+
+[sub_resource type="BoxShape" id=4]
+extents = Vector3( 2.46365, 1.29137, 1.46923 )
+
+[sub_resource type="BoxShape" id=16]
+extents = Vector3( 3, 2, 1 )
+
+[sub_resource type="SpatialMaterial" id=5]
+albedo_texture = ExtResource( 11 )
+uv1_scale = Vector3( 0.25, 0.25, 0.25 )
+
+[sub_resource type="BoxShape" id=6]
+extents = Vector3( 1, 0.584261, 0.91616 )
+
+[sub_resource type="BoxShape" id=17]
+extents = Vector3( 1, 0.645729, 1 )
+
+[sub_resource type="BoxShape" id=9]
+extents = Vector3( 0.205, 0.186, 0.189 )
+
+[sub_resource type="BoxShape" id=15]
+extents = Vector3( 0.721536, 2, 0.21788 )
+
+[sub_resource type="SpatialMaterial" id=10]
+albedo_texture = ExtResource( 10 )
+uv1_scale = Vector3( 0, 0.687, 0.875 )
+uv1_offset = Vector3( 0, 0.475, -0.492 )
+uv1_triplanar = true
+
+[sub_resource type="BoxShape" id=11]
+extents = Vector3( 0.75, 0.75, 0.75 )
+
+[sub_resource type="BoxShape" id=12]
+extents = Vector3( 1, 0.817979, 0.690449 )
+
+[sub_resource type="SpatialMaterial" id=14]
+albedo_texture = ExtResource( 24 )
+
+[sub_resource type="BoxShape" id=18]
+
+[node name="House" type="Spatial"]
+script = ExtResource( 33 )
+
+[node name="Architecture" type="Spatial" parent="."]
+
+[node name="Floor" type="CSGBox" parent="Architecture"]
+use_collision = true
+width = 32.0
+height = 0.1
+depth = 32.0
+material = SubResource( 1 )
+
+[node name="Ceiling" type="CSGBox" parent="Architecture"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0 )
+use_collision = true
+width = 32.0
+height = 0.25
+depth = 32.0
+material = SubResource( 1 )
+
+[node name="Walls" type="Spatial" parent="Architecture"]
+
+[node name="Wall" type="CSGBox" parent="Architecture/Walls"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 4 )
+use_collision = true
+width = 0.25
+height = 10.0
+depth = 24.0
+material = SubResource( 2 )
+
+[node name="Wall2" type="CSGBox" parent="Architecture/Walls"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 5, 0 )
+use_collision = true
+width = 0.25
+height = 10.0
+depth = 32.0
+material = SubResource( 2 )
+
+[node name="Wall3" type="CSGBox" parent="Architecture/Walls"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 5, 0 )
+use_collision = true
+width = 0.25
+height = 10.0
+depth = 32.0
+material = SubResource( 2 )
+
+[node name="Wall4" type="CSGBox" parent="Architecture/Walls"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 5, -16 )
+use_collision = true
+width = 0.25
+height = 10.0
+depth = 32.0
+material = SubResource( 2 )
+
+[node name="Wall5" type="CSGBox" parent="Architecture/Walls"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 5, 16 )
+use_collision = true
+width = 0.25
+height = 10.0
+depth = 32.0
+material = SubResource( 2 )
+
+[node name="Wall6" type="CSGBox" parent="Architecture/Walls"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5, 5, 7 )
+use_collision = true
+width = 0.25
+height = 10.0
+depth = 10.0
+material = SubResource( 2 )
+
+[node name="Wall7" type="CSGBox" parent="Architecture/Walls"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 13, 8, 7 )
+use_collision = true
+width = 0.249
+height = 4.0
+depth = 10.0
+material = SubResource( 2 )
+
+[node name="Wall8" type="CSGBox" parent="Architecture/Walls"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 8, -12 )
+use_collision = true
+width = 0.249
+height = 4.0
+depth = 10.0
+material = SubResource( 2 )
+
+[node name="Front Door" type="CSGBox" parent="Architecture"]
+transform = Transform( 1, 0, 0, 0, 4, 0, 0, 0, 2.5, -16.1157, 3.91918, -11.3174 )
+use_collision = true
+width = 0.5
+material = SubResource( 8 )
+script = ExtResource( 3 )
+
+[node name="Props" type="Spatial" parent="."]
+
+[node name="Shitter" type="StaticBody" parent="Props"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 12 )
+script = ExtResource( 25 )
+
+[node name="ShitterSprite" type="Sprite3D" parent="Props/Shitter"]
+transform = Transform( -2.18557e-07, 0, 1, 0, 5, 0, -5, 0, -4.37114e-08, -1, 1.69004, 0 )
+billboard = 1
+texture = ExtResource( 16 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Props/Shitter"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.01927, 2, -0.18325 )
+shape = SubResource( 3 )
+
+[node name="FlushSFX" type="AudioStreamPlayer3D" parent="Props/Shitter"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.569052, 1.4696, 0 )
+stream = ExtResource( 12 )
+bus = "SFX"
+
+[node name="Sink" type="StaticBody" parent="Props"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, 14 )
+script = ExtResource( 4 )
+
+[node name="SinkSprite" type="Sprite3D" parent="Props/Sink"]
+transform = Transform( -5, 0, -8.74228e-08, 0, 5, 0, 4.37114e-07, 0, -1, 0.00661945, 1.67738, -0.28204 )
+billboard = 1
+texture = ExtResource( 17 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Props/Sink"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.957951, 2.00167, 0.505707 )
+shape = SubResource( 4 )
+
+[node name="SinkSFX" type="AudioStreamPlayer3D" parent="Props/Sink"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.05799, -0.271826 )
+stream = ExtResource( 15 )
+unit_db = 80.0
+max_db = 6.0
+bus = "SFX"
+
+[node name="Pipe" type="StaticBody" parent="Props/Sink"]
+script = ExtResource( 30 )
+
+[node name="SecretSFX" type="AudioStreamPlayer3D" parent="Props/Sink/Pipe"]
+stream = ExtResource( 28 )
+
+[node name="Pipe" type="Sprite3D" parent="Props/Sink/Pipe"]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 1, 0, 1.91305, 0 )
+visible = false
+billboard = 1
+texture = ExtResource( 29 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Props/Sink/Pipe"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 2, 0 )
+shape = SubResource( 16 )
+disabled = true
+
+[node name="Table" type="StaticBody" parent="Props"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 1, -6 )
+
+[node name="Leg" type="CSGBox" parent="Props/Table"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -1 )
+use_collision = true
+width = 0.5
+depth = 0.5
+material = SubResource( 5 )
+
+[node name="Leg2" type="CSGBox" parent="Props/Table"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1 )
+use_collision = true
+width = 0.5
+depth = 0.5
+material = SubResource( 5 )
+
+[node name="Leg3" type="CSGBox" parent="Props/Table"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 1 )
+use_collision = true
+width = 0.5
+depth = 0.5
+material = SubResource( 5 )
+
+[node name="Leg4" type="CSGBox" parent="Props/Table"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -1 )
+use_collision = true
+width = 0.5
+depth = 0.5
+material = SubResource( 5 )
+
+[node name="Top" type="CSGBox" parent="Props/Table"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05, 0 )
+use_collision = true
+width = 2.5
+height = 0.1
+depth = 2.5
+material = SubResource( 5 )
+
+[node name="Microwave" type="StaticBody" parent="Props"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 3, -6 )
+script = ExtResource( 5 )
+
+[node name="MicrowaveSprite" type="Sprite3D" parent="Props/Microwave"]
+transform = Transform( -1.39876e-07, 0, -1, 0, 2, 0, 3.2, 0, -4.37114e-08, 0.315231, -0.237519, 0 )
+billboard = 1
+texture = ExtResource( 19 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Props/Microwave"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0531836 )
+shape = SubResource( 6 )
+
+[node name="MicrowaveSFX" type="AudioStreamPlayer3D" parent="Props/Microwave"]
+stream = ExtResource( 20 )
+bus = "SFX"
+
+[node name="TechChip" type="StaticBody" parent="Props/Microwave"]
+visible = false
+script = ExtResource( 32 )
+
+[node name="Sprite3D" type="Sprite3D" parent="Props/Microwave/TechChip"]
+billboard = 1
+texture = ExtResource( 31 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Props/Microwave/TechChip"]
+shape = SubResource( 17 )
+disabled = true
+
+[node name="AlarmClock" type="StaticBody" parent="Props"]
+transform = Transform( 1.76499, 0, 0.940638, 0, 2, 0, -0.940638, 0, 1.76499, -12.7543, 0.269796, -3.21543 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Props/AlarmClock"]
+shape = SubResource( 9 )
+disabled = true
+
+[node name="alarm clock" parent="Props/AlarmClock" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0377283, 0.0125952, -0.057271 )
+
+[node name="SewageGrate" type="StaticBody" parent="Props"]
+transform = Transform( -6.55671e-08, -1.5, -4.37114e-08, 0, -6.55671e-08, 1, -1.5, 6.55671e-08, 1.91069e-15, 2.9166, 0.0552152, 11.4402 )
+visible = false
+script = ExtResource( 27 )
+
+[node name="Sprite3D" type="Sprite3D" parent="Props/SewageGrate"]
+texture = ExtResource( 26 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Props/SewageGrate"]
+transform = Transform( 1, -7.10543e-15, 2.11758e-22, 7.10543e-15, 1, 8.88178e-15, -1.69407e-21, 4.9738e-14, 1, 0, 1.28306, 0.0389417 )
+shape = SubResource( 15 )
+
+[node name="SecretSFX" type="AudioStreamPlayer3D" parent="Props/SewageGrate"]
+stream = ExtResource( 28 )
+
+[node name="StackOfMoney" type="Spatial" parent="Props"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 1.38881, 13 )
+script = ExtResource( 36 )
+
+[node name="Stack1" type="Sprite3D" parent="Props/StackOfMoney"]
+transform = Transform( 1.45347, 0, 0, 0, 1.45347, 0, 0, 0, 1.45347, 0.0189614, -0.506072, 0 )
+visible = false
+billboard = 1
+texture = ExtResource( 35 )
+
+[node name="Stack2" type="Sprite3D" parent="Props/StackOfMoney"]
+transform = Transform( 1.45347, 0, 0, 0, 1.45347, 0, 0, 0, 1.45347, 0.913869, -0.506072, 0 )
+visible = false
+billboard = 1
+texture = ExtResource( 35 )
+
+[node name="Stack3" type="Sprite3D" parent="Props/StackOfMoney"]
+transform = Transform( 1.45347, 0, 0, 0, 1.45347, 0, 0, 0, 1.45347, -0.866488, -0.506072, 0 )
+visible = false
+billboard = 1
+texture = ExtResource( 35 )
+
+[node name="Stack4" type="Sprite3D" parent="Props/StackOfMoney"]
+transform = Transform( 1.45347, 0, 0, 0, 1.45347, 0, 0, 0, 1.45347, 1.68833, -0.506072, 0 )
+visible = false
+billboard = 1
+texture = ExtResource( 35 )
+
+[node name="Stack5" type="Sprite3D" parent="Props/StackOfMoney"]
+transform = Transform( 1.45347, 0, 0, 0, 1.45347, 0, 0, 0, 1.45347, -1.73314, -0.506072, 0 )
+visible = false
+billboard = 1
+texture = ExtResource( 35 )
+
+[node name="Stack6" type="Sprite3D" parent="Props/StackOfMoney"]
+transform = Transform( 1.45347, 0, 0, 0, 1.45347, 0, 0, 0, 1.45347, 2.42422, -0.506072, 0 )
+visible = false
+billboard = 1
+texture = ExtResource( 35 )
+
+[node name="Stack7" type="Sprite3D" parent="Props/StackOfMoney"]
+transform = Transform( 1.45347, 0, 0, 0, 1.45347, 0, 0, 0, 1.45347, -2.50784, -0.506072, 0 )
+visible = false
+billboard = 1
+texture = ExtResource( 35 )
+
+[node name="Stack8" type="Sprite3D" parent="Props/StackOfMoney"]
+transform = Transform( 1.45347, 0, 0, 0, 1.45347, 0, 0, 0, 1.45347, 0.0189614, 0.324421, 0 )
+visible = false
+billboard = 1
+texture = ExtResource( 35 )
+
+[node name="Stack9" type="Sprite3D" parent="Props/StackOfMoney"]
+transform = Transform( 1.45347, 0, 0, 0, 1.45347, 0, 0, 0, 1.45347, 0.913869, 0.324421, 0 )
+visible = false
+billboard = 1
+texture = ExtResource( 35 )
+
+[node name="Stack10" type="Sprite3D" parent="Props/StackOfMoney"]
+transform = Transform( 1.45347, 0, 0, 0, 1.45347, 0, 0, 0, 1.45347, -0.866488, 0.324421, 0 )
+visible = false
+billboard = 1
+texture = ExtResource( 35 )
+
+[node name="Stack11" type="Sprite3D" parent="Props/StackOfMoney"]
+transform = Transform( 1.45347, 0, 0, 0, 1.45347, 0, 0, 0, 1.45347, 1.68833, 0.324421, 0 )
+visible = false
+billboard = 1
+texture = ExtResource( 35 )
+
+[node name="Stack12" type="Sprite3D" parent="Props/StackOfMoney"]
+transform = Transform( 1.45347, 0, 0, 0, 1.45347, 0, 0, 0, 1.45347, -1.73314, 0.324421, 0 )
+visible = false
+billboard = 1
+texture = ExtResource( 35 )
+
+[node name="Stack13" type="Sprite3D" parent="Props/StackOfMoney"]
+transform = Transform( 1.45347, 0, 0, 0, 1.45347, 0, 0, 0, 1.45347, 0.913869, 0.324421, 0 )
+visible = false
+billboard = 1
+texture = ExtResource( 35 )
+
+[node name="Stack14" type="Sprite3D" parent="Props/StackOfMoney"]
+transform = Transform( 1.45347, 0, 0, 0, 1.45347, 0, 0, 0, 1.45347, -0.866488, 0.324421, 0 )
+visible = false
+billboard = 1
+texture = ExtResource( 35 )
+
+[node name="Stack15" type="Sprite3D" parent="Props/StackOfMoney"]
+transform = Transform( 1.45347, 0, 0, 0, 1.45347, 0, 0, 0, 1.45347, 1.68833, 0.324421, 0 )
+visible = false
+billboard = 1
+texture = ExtResource( 35 )
+
+[node name="Stack16" type="Sprite3D" parent="Props/StackOfMoney"]
+transform = Transform( 1.45347, 0, 0, 0, 1.45347, 0, 0, 0, 1.45347, -1.73314, 0.324421, 0 )
+visible = false
+billboard = 1
+texture = ExtResource( 35 )
+
+[node name="Stack17" type="Sprite3D" parent="Props/StackOfMoney"]
+transform = Transform( 1.45347, 0, 0, 0, 1.45347, 0, 0, 0, 1.45347, 0.0189614, 1.11492, 0 )
+visible = false
+billboard = 1
+texture = ExtResource( 35 )
+
+[node name="Stack18" type="Sprite3D" parent="Props/StackOfMoney"]
+transform = Transform( 1.45347, 0, 0, 0, 1.45347, 0, 0, 0, 1.45347, 0.913869, 1.11492, 0 )
+visible = false
+billboard = 1
+texture = ExtResource( 35 )
+
+[node name="Stack19" type="Sprite3D" parent="Props/StackOfMoney"]
+transform = Transform( 1.45347, 0, 0, 0, 1.45347, 0, 0, 0, 1.45347, -0.866488, 1.11492, 0 )
+visible = false
+billboard = 1
+texture = ExtResource( 35 )
+
+[node name="Stack20" type="Sprite3D" parent="Props/StackOfMoney"]
+transform = Transform( 1.45347, 0, 0, 0, 1.45347, 0, 0, 0, 1.45347, -0.507219, 1.99404, 0 )
+visible = false
+billboard = 1
+texture = ExtResource( 35 )
+
+[node name="Stack21" type="Sprite3D" parent="Props/StackOfMoney"]
+transform = Transform( 1.45347, 0, 0, 0, 1.45347, 0, 0, 0, 1.45347, 0.366811, 1.99404, 0 )
+visible = false
+billboard = 1
+texture = ExtResource( 35 )
+
+[node name="Stack22" type="Sprite3D" parent="Props/StackOfMoney"]
+transform = Transform( 1.45347, 0, 0, 0, 1.45347, 0, 0, 0, 1.45347, -0.0508671, 2.73806, 0 )
+visible = false
+billboard = 1
+texture = ExtResource( 35 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -14, 3, -11 )
+
+[node name="Note" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 5, -11 )
+use_collision = true
+width = 0.347681
+height = 1.5
+depth = 1.1
+material = SubResource( 10 )
+script = ExtResource( 6 )
+
+[node name="Rats" type="Spatial" parent="."]
+
+[node name="Rat" parent="Rats" instance=ExtResource( 23 )]
+
+[node name="Rat2" type="StaticBody" parent="Rats"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.93842, 0.582685, 7.89865 )
+script = ExtResource( 7 )
+
+[node name="Sprite" type="Sprite3D" parent="Rats/Rat2"]
+billboard = 1
+texture = ExtResource( 21 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Rats/Rat2"]
+shape = SubResource( 11 )
+
+[node name="Rat3" type="StaticBody" parent="Rats"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15.0338, 0.582685, -15.0275 )
+script = ExtResource( 7 )
+
+[node name="Sprite" type="Sprite3D" parent="Rats/Rat3"]
+billboard = 1
+texture = ExtResource( 21 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Rats/Rat3"]
+shape = SubResource( 11 )
+
+[node name="Gun" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, -6 )
+script = ExtResource( 8 )
+
+[node name="Sprite3D" type="Sprite3D" parent="Gun"]
+transform = Transform( 1, 0, 0, 0, 0.75, 0, 0, 0, 1, -0.0706263, 0.512157, 0 )
+billboard = 1
+texture = ExtResource( 13 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Gun"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.711165, 0 )
+shape = SubResource( 12 )
+
+[node name="GunCockSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+bus = "SFX"
+
+[node name="Matress" type="StaticBody" parent="."]
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 3, -9, -0.7, 0 )
+script = ExtResource( 34 )
+
+[node name="CSGBox" type="CSGBox" parent="Matress"]
+transform = Transform( 1, 0, 0, 0, 0.2, 0, 0, 0, 1, 0, 0.64499, 0 )
+material = SubResource( 14 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Matress"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.246735, 0 )
+shape = SubResource( 18 )
+disabled = true

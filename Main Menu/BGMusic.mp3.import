@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/BGMusic.mp3-f27eedaa491f2be652d849385dc84cd1.mp3str"
+
+[deps]
+
+source_file="res://Main Menu/BGMusic.mp3"
+dest_files=[ "res://.import/BGMusic.mp3-f27eedaa491f2be652d849385dc84cd1.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

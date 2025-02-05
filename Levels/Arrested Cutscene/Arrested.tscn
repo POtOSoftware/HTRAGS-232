@@ -1,0 +1,2612 @@
+[gd_scene load_steps=35 format=2]
+
+[ext_resource path="res://Levels/Road/Sky.png" type="Texture" id=1]
+[ext_resource path="res://Levels/Road/Grass.png" type="Texture" id=2]
+[ext_resource path="res://Levels/Arrested Cutscene/Arrested.gd" type="Script" id=3]
+[ext_resource path="res://Levels/Gas Station Exterior/Concrete.png" type="Texture" id=4]
+[ext_resource path="res://Prefabs/Gas Pump/Gas Pump.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Levels/Arrested Cutscene/Police.png" type="Texture" id=6]
+[ext_resource path="res://Prefabs/Gas Station Sign/Gas Station Sign.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Levels/Gas Station_Part2/Sirens.wav" type="AudioStream" id=8]
+[ext_resource path="res://Levels/Gas Station Exterior/StaticBody.gd" type="Script" id=9]
+[ext_resource path="res://Levels/House_Part2/Rat.png" type="Texture" id=10]
+[ext_resource path="res://Levels/House_Part2/Rat.gd" type="Script" id=11]
+[ext_resource path="res://Levels/Arrested Cutscene/TheBird.png" type="Texture" id=12]
+[ext_resource path="res://Levels/Gas Station Exterior/Front.png" type="Texture" id=13]
+[ext_resource path="res://Levels/Gas Station Exterior/Wall.png" type="Texture" id=14]
+[ext_resource path="res://Levels/Gas Station Exterior/Door.png" type="Texture" id=15]
+[ext_resource path="res://Levels/Gas Station Exterior/Door.gd" type="Script" id=16]
+[ext_resource path="res://Levels/Arrested Cutscene/Stampede.wav" type="AudioStream" id=17]
+[ext_resource path="res://Levels/Arrested Cutscene/BFG.png" type="Texture" id=18]
+[ext_resource path="res://Levels/House_Part2/GunCock.wav" type="AudioStream" id=19]
+
+[sub_resource type="PanoramaSky" id=4]
+panorama = ExtResource( 1 )
+
+[sub_resource type="Environment" id=5]
+background_mode = 2
+background_sky = SubResource( 4 )
+ambient_light_energy = 5.0
+
+[sub_resource type="SpatialMaterial" id=6]
+albedo_color = Color( 0, 0.411765, 0, 1 )
+albedo_texture = ExtResource( 2 )
+metallic_specular = 0.0
+uv1_scale = Vector3( -0.05, 0, -0.05 )
+uv1_triplanar = true
+
+[sub_resource type="SpatialMaterial" id=7]
+albedo_texture = ExtResource( 4 )
+uv1_scale = Vector3( 0.25, 1, 0.25 )
+uv1_triplanar = true
+
+[sub_resource type="BoxShape" id=9]
+extents = Vector3( 1.71003, 1.45142, 1 )
+
+[sub_resource type="BoxShape" id=8]
+extents = Vector3( 1, 6, 2 )
+
+[sub_resource type="SpatialMaterial" id=14]
+albedo_texture = ExtResource( 13 )
+uv1_scale = Vector3( -1, 1, 1 )
+
+[sub_resource type="SpatialMaterial" id=16]
+albedo_texture = ExtResource( 14 )
+uv1_scale = Vector3( 1, 0.2, 0.2 )
+uv1_triplanar = true
+
+[sub_resource type="SpatialMaterial" id=15]
+albedo_texture = ExtResource( 4 )
+uv1_scale = Vector3( 10, 10, 1 )
+
+[sub_resource type="SpatialMaterial" id=17]
+flags_transparent = true
+albedo_texture = ExtResource( 15 )
+
+[sub_resource type="Animation" id=18]
+resource_name = "Cutscene"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Camera:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 10 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 115, 0 ), Vector3( 0, 65, 0 ) ]
+}
+
+[sub_resource type="Animation" id=20]
+resource_name = "Cutscene_Rat"
+length = 20.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Camera:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 10, 10.2, 12.5, 12.7, 20 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 115, 0 ), Vector3( 0, 65, 0 ), Vector3( 0, 170, 0 ), Vector3( 0, 170, 0 ), Vector3( 0, 90, 10 ), Vector3( 2.72145e-07, 165, 10 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Rat Stampede:translation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 10, 15, 20 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 18, 0, 22 ), Vector3( 18, 0, -50 ), Vector3( 18, 0, -122 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Camera:translation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 12.5, 12.7, 15, 20 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 22, 4.5, -9 ), Vector3( 22, 2.5, -9 ), Vector3( 22, 2.5, -42 ), Vector3( 22, 2.5, -114 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Middle Finger/Sprite:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 13, 14 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 104 ), Vector2( 0, -24 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Rat Stampede/StampedeSFX:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+
+[sub_resource type="Animation" id=22]
+resource_name = "Cutscene_tech_chip"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Camera:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 115, 0 ), Vector3( 0, 90, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BFG/Sprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 5, 6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 152, 312 ), Vector2( 152, 312 ), Vector2( 152, 230 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("BFG/GunCockSFX:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+
+[sub_resource type="Animation" id=19]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Camera:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 115, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Rat Stampede:translation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 21, 0, 22 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Camera:translation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 22, 4.5, -9 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Middle Finger/Sprite:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 104 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Rat Stampede/StampedeSFX:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("BFG/Sprite:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 152, 312 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("BFG/GunCockSFX:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+
+[sub_resource type="BoxShape" id=21]
+extents = Vector3( 0.75, 0.75, 0.75 )
+
+[node name="Gas Station Exterior" type="Spatial"]
+script = ExtResource( 3 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 5 )
+
+[node name="Grass" type="CSGBox" parent="."]
+use_collision = true
+width = 1000.0
+height = 1.0
+depth = 1000.0
+material = SubResource( 6 )
+
+[node name="Concrete" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.526861, -13.0333 )
+width = 48.5841
+height = 0.002
+depth = 36.8609
+material = SubResource( 7 )
+
+[node name="Gas Pump" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 2.04842, 0.512569, -8.56759 )
+
+[node name="Explosive" type="StaticBody" parent="Gas Pump"]
+script = ExtResource( 9 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Gas Pump/Explosive"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.207819, -6.53072 )
+shape = SubResource( 9 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="Gas Pump/Explosive"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -0.531 )
+shape = SubResource( 9 )
+
+[node name="Gas Station Sign" parent="." instance=ExtResource( 7 )]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, -26, 0, -42 )
+
+[node name="StaticBody" type="StaticBody" parent="Gas Station Sign"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Gas Station Sign/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.33333, 0 )
+shape = SubResource( 8 )
+
+[node name="Gas Station" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.0197, 0, 0 )
+
+[node name="Front" type="CSGBox" parent="Gas Station"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 34.8895, 6.16759, -13 )
+use_collision = true
+height = 29.9145
+depth = 12.7861
+material = SubResource( 14 )
+
+[node name="Front2" type="CSGBox" parent="Gas Station"]
+transform = Transform( -4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, 48.9681, 6.16759, -27.1105 )
+use_collision = true
+height = 29.9145
+depth = 12.7861
+material = SubResource( 16 )
+
+[node name="Front3" type="CSGBox" parent="Gas Station"]
+transform = Transform( -4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, 48.9218, 6.16759, 1.26919 )
+use_collision = true
+height = 29.9145
+depth = 12.7861
+material = SubResource( 16 )
+
+[node name="Front4" type="CSGBox" parent="Gas Station"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 63.0124, 6.16759, -12.9935 )
+use_collision = true
+height = 30.0323
+depth = 12.7861
+material = SubResource( 16 )
+
+[node name="Top" type="CSGBox" parent="Gas Station"]
+transform = Transform( -4.37114e-08, -4.37988e-08, -1, -1, -4.37988e-08, 4.37114e-08, -4.37114e-08, 1.002, -4.37114e-08, 49.0805, 11.6922, -13 )
+use_collision = true
+height = 29.9145
+depth = 29.7402
+material = SubResource( 15 )
+
+[node name="Door" type="CSGBox" parent="Gas Station"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 34.8612, 3.20038, -8.13515 )
+use_collision = true
+height = 8.20213
+depth = 5.8167
+material = SubResource( 17 )
+script = ExtResource( 16 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Cutscene = SubResource( 18 )
+anims/Cutscene_Rat = SubResource( 20 )
+anims/Cutscene_tech_chip = SubResource( 22 )
+anims/RESET = SubResource( 19 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( -0.422618, 0, 0.906308, 0, 1, 0, -0.906308, 0, -0.422618, 22, 4.5, -9 )
+current = true
+
+[node name="Buncha Rollers" type="Spatial" parent="."]
+
+[node name="Police" type="Spatial" parent="Buncha Rollers"]
+
+[node name="Police" type="Sprite3D" parent="Buncha Rollers/Police"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 17, 3, -1 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police2" type="Sprite3D" parent="Buncha Rollers/Police"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 17.4545, 3, 1.7272 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police3" type="Sprite3D" parent="Buncha Rollers/Police"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 16.4546, 3, -3.18175 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police4" type="Sprite3D" parent="Buncha Rollers/Police"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 15.8182, 3, -4.81807 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police5" type="Sprite3D" parent="Buncha Rollers/Police"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 15.1819, 3, -6.5453 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police6" type="Sprite3D" parent="Buncha Rollers/Police"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 15.1819, 3, -8.81796 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police7" type="Sprite3D" parent="Buncha Rollers/Police"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 14.7273, 3, -10.8179 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police8" type="Sprite3D" parent="Buncha Rollers/Police"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 14.2232, 3, -12.8876 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police2" type="Spatial" parent="Buncha Rollers"]
+transform = Transform( 0.961971, 0, -0.273153, 0, 1, 0, 0.273153, 0, 0.961971, -2.82314, 0, -15.7879 )
+
+[node name="Police" type="Sprite3D" parent="Buncha Rollers/Police2"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 17, 3, -1 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police2" type="Sprite3D" parent="Buncha Rollers/Police2"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 17.4545, 3, 1.7272 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police3" type="Sprite3D" parent="Buncha Rollers/Police2"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 16.4546, 3, -3.18175 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police4" type="Sprite3D" parent="Buncha Rollers/Police2"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 15.8182, 3, -4.81807 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police5" type="Sprite3D" parent="Buncha Rollers/Police2"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 15.1819, 3, -6.5453 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police6" type="Sprite3D" parent="Buncha Rollers/Police2"]
+transform = Transform( -5.96046e-08, 0, 1, 0, 2, 0, -2, 0, -2.98023e-08, 15.0681, 3, -8.50006 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police7" type="Sprite3D" parent="Buncha Rollers/Police2"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 14.7273, 3, -10.8179 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police8" type="Sprite3D" parent="Buncha Rollers/Police2"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 14.2232, 3, -12.8876 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police3" type="Spatial" parent="Buncha Rollers"]
+transform = Transform( 0.997898, 0, -0.064811, 0, 1, 0, 0.064811, 0, 0.997898, -1.76342, 0, 2.38672 )
+
+[node name="Police" type="Sprite3D" parent="Buncha Rollers/Police3"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 17, 3, -1 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police2" type="Sprite3D" parent="Buncha Rollers/Police3"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 17.4545, 3, 1.7272 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police3" type="Sprite3D" parent="Buncha Rollers/Police3"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 16.4546, 3, -3.18175 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police4" type="Sprite3D" parent="Buncha Rollers/Police3"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 15.8182, 3, -4.81807 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police5" type="Sprite3D" parent="Buncha Rollers/Police3"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 15.1819, 3, -6.5453 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police6" type="Sprite3D" parent="Buncha Rollers/Police3"]
+transform = Transform( -5.96046e-08, 0, 1, 0, 2, 0, -2, 0, -2.98023e-08, 15.0681, 3, -8.50006 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police7" type="Sprite3D" parent="Buncha Rollers/Police3"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 14.7273, 3, -10.8179 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police8" type="Sprite3D" parent="Buncha Rollers/Police3"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 14.2232, 3, -12.8876 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police4" type="Spatial" parent="Buncha Rollers"]
+transform = Transform( 0.974189, 0, -0.225733, 0, 1, 0, 0.225733, 0, 0.974189, -4.3946, 0, -17.0581 )
+
+[node name="Police" type="Sprite3D" parent="Buncha Rollers/Police4"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 17, 3, -1 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police2" type="Sprite3D" parent="Buncha Rollers/Police4"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 17.4545, 3, 1.7272 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police3" type="Sprite3D" parent="Buncha Rollers/Police4"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 16.4546, 3, -3.18175 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police4" type="Sprite3D" parent="Buncha Rollers/Police4"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 15.8182, 3, -4.81807 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police5" type="Sprite3D" parent="Buncha Rollers/Police4"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 15.1819, 3, -6.5453 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police6" type="Sprite3D" parent="Buncha Rollers/Police4"]
+transform = Transform( -5.96046e-08, 0, 1, 0, 2, 0, -2, 0, -2.98023e-08, 15.0681, 3, -8.50006 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police7" type="Sprite3D" parent="Buncha Rollers/Police4"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 14.7273, 3, -10.8179 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police8" type="Sprite3D" parent="Buncha Rollers/Police4"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 14.2232, 3, -12.8876 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police5" type="Spatial" parent="Buncha Rollers"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.91437, 0, 0 )
+
+[node name="Police" type="Sprite3D" parent="Buncha Rollers/Police5"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 17, 3, -1 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police2" type="Sprite3D" parent="Buncha Rollers/Police5"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 17.4545, 3, 1.7272 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police3" type="Sprite3D" parent="Buncha Rollers/Police5"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 16.4546, 3, -3.18175 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police4" type="Sprite3D" parent="Buncha Rollers/Police5"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 15.8182, 3, -4.81807 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police5" type="Sprite3D" parent="Buncha Rollers/Police5"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 15.1819, 3, -6.5453 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police6" type="Sprite3D" parent="Buncha Rollers/Police5"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 15.1819, 3, -8.81796 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police7" type="Sprite3D" parent="Buncha Rollers/Police5"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 14.7273, 3, -10.8179 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police8" type="Sprite3D" parent="Buncha Rollers/Police5"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 14.2232, 3, -12.8876 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police6" type="Spatial" parent="Buncha Rollers"]
+transform = Transform( 0.961971, 0, -0.273153, 0, 1, 0, 0.273153, 0, 0.961971, -6.73752, 0, -15.7879 )
+
+[node name="Police" type="Sprite3D" parent="Buncha Rollers/Police6"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 17, 3, -1 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police2" type="Sprite3D" parent="Buncha Rollers/Police6"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 17.4545, 3, 1.7272 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police3" type="Sprite3D" parent="Buncha Rollers/Police6"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 16.4546, 3, -3.18175 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police4" type="Sprite3D" parent="Buncha Rollers/Police6"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 15.8182, 3, -4.81807 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police5" type="Sprite3D" parent="Buncha Rollers/Police6"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 15.1819, 3, -6.5453 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police6" type="Sprite3D" parent="Buncha Rollers/Police6"]
+transform = Transform( -5.96046e-08, 0, 1, 0, 2, 0, -2, 0, -2.98023e-08, 15.0681, 3, -8.50006 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police7" type="Sprite3D" parent="Buncha Rollers/Police6"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 14.7273, 3, -10.8179 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police8" type="Sprite3D" parent="Buncha Rollers/Police6"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 14.2232, 3, -12.8876 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police7" type="Spatial" parent="Buncha Rollers"]
+transform = Transform( 0.997898, 0, -0.064811, 0, 1, 0, 0.064811, 0, 0.997898, -5.67779, 0, 2.38672 )
+
+[node name="Police" type="Sprite3D" parent="Buncha Rollers/Police7"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 17, 3, -1 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police2" type="Sprite3D" parent="Buncha Rollers/Police7"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 17.4545, 3, 1.7272 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police3" type="Sprite3D" parent="Buncha Rollers/Police7"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 16.4546, 3, -3.18175 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police4" type="Sprite3D" parent="Buncha Rollers/Police7"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 15.8182, 3, -4.81807 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police5" type="Sprite3D" parent="Buncha Rollers/Police7"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 15.1819, 3, -6.5453 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police6" type="Sprite3D" parent="Buncha Rollers/Police7"]
+transform = Transform( -5.96046e-08, 0, 1, 0, 2, 0, -2, 0, -2.98023e-08, 15.0681, 3, -8.50006 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police7" type="Sprite3D" parent="Buncha Rollers/Police7"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 14.7273, 3, -10.8179 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police8" type="Sprite3D" parent="Buncha Rollers/Police7"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 14.2232, 3, -12.8876 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police8" type="Spatial" parent="Buncha Rollers"]
+transform = Transform( 0.974189, 0, -0.225733, 0, 1, 0, 0.225733, 0, 0.974189, -8.30897, 0, -17.0581 )
+
+[node name="Police" type="Sprite3D" parent="Buncha Rollers/Police8"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 17, 3, -1 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police2" type="Sprite3D" parent="Buncha Rollers/Police8"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 17.4545, 3, 1.7272 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police3" type="Sprite3D" parent="Buncha Rollers/Police8"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 16.4546, 3, -3.18175 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police4" type="Sprite3D" parent="Buncha Rollers/Police8"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 15.8182, 3, -4.81807 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police5" type="Sprite3D" parent="Buncha Rollers/Police8"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 15.1819, 3, -6.5453 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police6" type="Sprite3D" parent="Buncha Rollers/Police8"]
+transform = Transform( -5.96046e-08, 0, 1, 0, 2, 0, -2, 0, -2.98023e-08, 15.0681, 3, -8.50006 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police7" type="Sprite3D" parent="Buncha Rollers/Police8"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 14.7273, 3, -10.8179 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police8" type="Sprite3D" parent="Buncha Rollers/Police8"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 14.2232, 3, -12.8876 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police9" type="Spatial" parent="Buncha Rollers"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.15902, 0, -21.529 )
+
+[node name="Police" type="Sprite3D" parent="Buncha Rollers/Police9"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 17, 3, -1 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police2" type="Sprite3D" parent="Buncha Rollers/Police9"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 17.4545, 3, 1.7272 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police3" type="Sprite3D" parent="Buncha Rollers/Police9"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 16.4546, 3, -3.18175 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police4" type="Sprite3D" parent="Buncha Rollers/Police9"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 15.8182, 3, -4.81807 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police5" type="Sprite3D" parent="Buncha Rollers/Police9"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 15.1819, 3, -6.5453 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police6" type="Sprite3D" parent="Buncha Rollers/Police9"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 15.1819, 3, -8.81796 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police7" type="Sprite3D" parent="Buncha Rollers/Police9"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 14.7273, 3, -10.8179 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police8" type="Sprite3D" parent="Buncha Rollers/Police9"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 14.2232, 3, -12.8876 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police10" type="Spatial" parent="Buncha Rollers"]
+transform = Transform( 0.961971, 0, -0.273153, 0, 1, 0, 0.273153, 0, 0.961971, -6.98217, 0, -37.3169 )
+
+[node name="Police" type="Sprite3D" parent="Buncha Rollers/Police10"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 17, 3, -1 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police2" type="Sprite3D" parent="Buncha Rollers/Police10"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 17.4545, 3, 1.7272 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police3" type="Sprite3D" parent="Buncha Rollers/Police10"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 16.4546, 3, -3.18175 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police4" type="Sprite3D" parent="Buncha Rollers/Police10"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 15.8182, 3, -4.81807 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police5" type="Sprite3D" parent="Buncha Rollers/Police10"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 15.1819, 3, -6.5453 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police6" type="Sprite3D" parent="Buncha Rollers/Police10"]
+transform = Transform( -5.96046e-08, 0, 1, 0, 2, 0, -2, 0, -2.98023e-08, 15.0681, 3, -8.50006 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police7" type="Sprite3D" parent="Buncha Rollers/Police10"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 14.7273, 3, -10.8179 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police8" type="Sprite3D" parent="Buncha Rollers/Police10"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 14.2232, 3, -12.8876 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police11" type="Spatial" parent="Buncha Rollers"]
+transform = Transform( 0.997898, 0, -0.064811, 0, 1, 0, 0.064811, 0, 0.997898, -5.92244, 0, -19.1423 )
+
+[node name="Police" type="Sprite3D" parent="Buncha Rollers/Police11"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 17, 3, -1 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police2" type="Sprite3D" parent="Buncha Rollers/Police11"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 17.4545, 3, 1.7272 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police3" type="Sprite3D" parent="Buncha Rollers/Police11"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 16.4546, 3, -3.18175 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police4" type="Sprite3D" parent="Buncha Rollers/Police11"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 15.8182, 3, -4.81807 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police5" type="Sprite3D" parent="Buncha Rollers/Police11"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 15.1819, 3, -6.5453 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police6" type="Sprite3D" parent="Buncha Rollers/Police11"]
+transform = Transform( -5.96046e-08, 0, 1, 0, 2, 0, -2, 0, -2.98023e-08, 15.0681, 3, -8.50006 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police7" type="Sprite3D" parent="Buncha Rollers/Police11"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 14.7273, 3, -10.8179 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police8" type="Sprite3D" parent="Buncha Rollers/Police11"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 14.2232, 3, -12.8876 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police12" type="Spatial" parent="Buncha Rollers"]
+transform = Transform( 0.974189, 0, -0.225733, 0, 1, 0, 0.225733, 0, 0.974189, -8.55362, 0, -38.5871 )
+
+[node name="Police" type="Sprite3D" parent="Buncha Rollers/Police12"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 17, 3, -1 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police2" type="Sprite3D" parent="Buncha Rollers/Police12"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 17.4545, 3, 1.7272 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police3" type="Sprite3D" parent="Buncha Rollers/Police12"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 16.4546, 3, -3.18175 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police4" type="Sprite3D" parent="Buncha Rollers/Police12"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 15.8182, 3, -4.81807 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police5" type="Sprite3D" parent="Buncha Rollers/Police12"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 15.1819, 3, -6.5453 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police6" type="Sprite3D" parent="Buncha Rollers/Police12"]
+transform = Transform( -5.96046e-08, 0, 1, 0, 2, 0, -2, 0, -2.98023e-08, 15.0681, 3, -8.50006 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police7" type="Sprite3D" parent="Buncha Rollers/Police12"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 14.7273, 3, -10.8179 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police8" type="Sprite3D" parent="Buncha Rollers/Police12"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 14.2232, 3, -12.8876 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police13" type="Spatial" parent="Buncha Rollers"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.369246, 0, 12.433 )
+
+[node name="Police" type="Sprite3D" parent="Buncha Rollers/Police13"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 17, 3, -1 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police2" type="Sprite3D" parent="Buncha Rollers/Police13"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 17.4545, 3, 1.7272 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police3" type="Sprite3D" parent="Buncha Rollers/Police13"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 16.4546, 3, -3.18175 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police4" type="Sprite3D" parent="Buncha Rollers/Police13"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 15.8182, 3, -4.81807 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police5" type="Sprite3D" parent="Buncha Rollers/Police13"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 15.1819, 3, -6.5453 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police6" type="Sprite3D" parent="Buncha Rollers/Police13"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 15.1819, 3, -8.81796 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police7" type="Sprite3D" parent="Buncha Rollers/Police13"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 14.7273, 3, -10.8179 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police8" type="Sprite3D" parent="Buncha Rollers/Police13"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 14.2232, 3, -12.8876 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police14" type="Spatial" parent="Buncha Rollers"]
+transform = Transform( 0.961971, 0, -0.273153, 0, 1, 0, 0.273153, 0, 0.961971, -2.4539, 0, -3.35493 )
+
+[node name="Police" type="Sprite3D" parent="Buncha Rollers/Police14"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 17, 3, -1 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police2" type="Sprite3D" parent="Buncha Rollers/Police14"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 17.4545, 3, 1.7272 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police3" type="Sprite3D" parent="Buncha Rollers/Police14"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 16.4546, 3, -3.18175 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police4" type="Sprite3D" parent="Buncha Rollers/Police14"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 15.8182, 3, -4.81807 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police5" type="Sprite3D" parent="Buncha Rollers/Police14"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 15.1819, 3, -6.5453 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police6" type="Sprite3D" parent="Buncha Rollers/Police14"]
+transform = Transform( -5.96046e-08, 0, 1, 0, 2, 0, -2, 0, -2.98023e-08, 15.0681, 3, -8.50006 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police7" type="Sprite3D" parent="Buncha Rollers/Police14"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 14.7273, 3, -10.8179 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police8" type="Sprite3D" parent="Buncha Rollers/Police14"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 14.2232, 3, -12.8876 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police15" type="Spatial" parent="Buncha Rollers"]
+transform = Transform( 0.997898, 0, -0.064811, 0, 1, 0, 0.064811, 0, 0.997898, -1.39418, 0, 14.8197 )
+
+[node name="Police" type="Sprite3D" parent="Buncha Rollers/Police15"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 17, 3, -1 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police2" type="Sprite3D" parent="Buncha Rollers/Police15"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 17.4545, 3, 1.7272 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police3" type="Sprite3D" parent="Buncha Rollers/Police15"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 16.4546, 3, -3.18175 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police4" type="Sprite3D" parent="Buncha Rollers/Police15"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 15.8182, 3, -4.81807 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police5" type="Sprite3D" parent="Buncha Rollers/Police15"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 15.1819, 3, -6.5453 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police6" type="Sprite3D" parent="Buncha Rollers/Police15"]
+transform = Transform( -5.96046e-08, 0, 1, 0, 2, 0, -2, 0, -2.98023e-08, 15.0681, 3, -8.50006 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police7" type="Sprite3D" parent="Buncha Rollers/Police15"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 14.7273, 3, -10.8179 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police8" type="Sprite3D" parent="Buncha Rollers/Police15"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 14.2232, 3, -12.8876 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police16" type="Spatial" parent="Buncha Rollers"]
+transform = Transform( 0.974189, 0, -0.225733, 0, 1, 0, 0.225733, 0, 0.974189, -4.02535, 0, -4.6251 )
+
+[node name="Police" type="Sprite3D" parent="Buncha Rollers/Police16"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 17, 3, -1 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police2" type="Sprite3D" parent="Buncha Rollers/Police16"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 17.4545, 3, 1.7272 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police3" type="Sprite3D" parent="Buncha Rollers/Police16"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 16.4546, 3, -3.18175 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police4" type="Sprite3D" parent="Buncha Rollers/Police16"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 15.8182, 3, -4.81807 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police5" type="Sprite3D" parent="Buncha Rollers/Police16"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 15.1819, 3, -6.5453 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police6" type="Sprite3D" parent="Buncha Rollers/Police16"]
+transform = Transform( -5.96046e-08, 0, 1, 0, 2, 0, -2, 0, -2.98023e-08, 15.0681, 3, -8.50006 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police7" type="Sprite3D" parent="Buncha Rollers/Police16"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 14.7273, 3, -10.8179 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police8" type="Sprite3D" parent="Buncha Rollers/Police16"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 14.2232, 3, -12.8876 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police17" type="Spatial" parent="Buncha Rollers"]
+transform = Transform( 0.904373, 0, -0.426742, 0, 1, 0, 0.426742, 0, 0.904373, -3.82739, 0, -17.5787 )
+
+[node name="Police" type="Sprite3D" parent="Buncha Rollers/Police17"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 17, 3, -1 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police2" type="Sprite3D" parent="Buncha Rollers/Police17"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 17.4545, 3, 1.7272 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police3" type="Sprite3D" parent="Buncha Rollers/Police17"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 16.4546, 3, -3.18175 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police4" type="Sprite3D" parent="Buncha Rollers/Police17"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 15.8182, 3, -4.81807 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police5" type="Sprite3D" parent="Buncha Rollers/Police17"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 15.1819, 3, -6.5453 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police6" type="Sprite3D" parent="Buncha Rollers/Police17"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 15.1819, 3, -8.81796 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police7" type="Sprite3D" parent="Buncha Rollers/Police17"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 14.7273, 3, -10.8179 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police8" type="Sprite3D" parent="Buncha Rollers/Police17"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 14.2232, 3, -12.8876 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police18" type="Spatial" parent="Buncha Rollers"]
+transform = Transform( 0.753414, 0, -0.657546, 0, 1, 0, 0.657546, 0, 0.753414, 0.356801, 0, -33.0617 )
+
+[node name="Police" type="Sprite3D" parent="Buncha Rollers/Police18"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 17, 3, -1 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police2" type="Sprite3D" parent="Buncha Rollers/Police18"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 17.4545, 3, 1.7272 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police3" type="Sprite3D" parent="Buncha Rollers/Police18"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 16.4546, 3, -3.18175 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police4" type="Sprite3D" parent="Buncha Rollers/Police18"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 15.8182, 3, -4.81807 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police5" type="Sprite3D" parent="Buncha Rollers/Police18"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 15.1819, 3, -6.5453 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police6" type="Sprite3D" parent="Buncha Rollers/Police18"]
+transform = Transform( -5.96046e-08, 0, 1, 0, 2, 0, -2, 0, -2.98023e-08, 15.0681, 3, -8.50006 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police7" type="Sprite3D" parent="Buncha Rollers/Police18"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 14.7273, 3, -10.8179 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police8" type="Sprite3D" parent="Buncha Rollers/Police18"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 14.2232, 3, -12.8876 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police19" type="Spatial" parent="Buncha Rollers"]
+transform = Transform( 0.874814, 0, -0.484459, 0, 1, 0, 0.484459, 0, 0.874814, -6.4407, 0, -16.1728 )
+
+[node name="Police" type="Sprite3D" parent="Buncha Rollers/Police19"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 17, 3, -1 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police2" type="Sprite3D" parent="Buncha Rollers/Police19"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 17.4545, 3, 1.7272 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police3" type="Sprite3D" parent="Buncha Rollers/Police19"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 16.4546, 3, -3.18175 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police4" type="Sprite3D" parent="Buncha Rollers/Police19"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 15.8182, 3, -4.81807 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police5" type="Sprite3D" parent="Buncha Rollers/Police19"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 15.1819, 3, -6.5453 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police6" type="Sprite3D" parent="Buncha Rollers/Police19"]
+transform = Transform( -5.96046e-08, 0, 1, 0, 2, 0, -2, 0, -2.98023e-08, 15.0681, 3, -8.50006 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police7" type="Sprite3D" parent="Buncha Rollers/Police19"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 14.7273, 3, -10.8179 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police8" type="Sprite3D" parent="Buncha Rollers/Police19"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 14.2232, 3, -12.8876 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police22" type="Spatial" parent="Buncha Rollers"]
+transform = Transform( 0.874814, 0, -0.484459, 0, 1, 0, 0.484459, 0, 0.874814, -1.4407, 0, -35.1728 )
+
+[node name="Police" type="Sprite3D" parent="Buncha Rollers/Police22"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 17, 3, -1 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police2" type="Sprite3D" parent="Buncha Rollers/Police22"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 17.4545, 3, 1.7272 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police3" type="Sprite3D" parent="Buncha Rollers/Police22"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 16.4546, 3, -3.18175 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police4" type="Sprite3D" parent="Buncha Rollers/Police22"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 15.8182, 3, -4.81807 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police5" type="Sprite3D" parent="Buncha Rollers/Police22"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 15.1819, 3, -6.5453 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police6" type="Sprite3D" parent="Buncha Rollers/Police22"]
+transform = Transform( -5.96046e-08, 0, 1, 0, 2, 0, -2, 0, -2.98023e-08, 15.0681, 3, -8.50006 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police7" type="Sprite3D" parent="Buncha Rollers/Police22"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 14.7273, 3, -10.8179 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police8" type="Sprite3D" parent="Buncha Rollers/Police22"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 14.2232, 3, -12.8876 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police23" type="Spatial" parent="Buncha Rollers"]
+transform = Transform( 0.970393, 0, -0.241533, 0, 1, 0, 0.241533, 0, 0.970393, -2.4407, 0, -32.1728 )
+
+[node name="Police" type="Sprite3D" parent="Buncha Rollers/Police23"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 17, 3, -1 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police2" type="Sprite3D" parent="Buncha Rollers/Police23"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 17.4545, 3, 1.7272 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police3" type="Sprite3D" parent="Buncha Rollers/Police23"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 16.4546, 3, -3.18175 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police4" type="Sprite3D" parent="Buncha Rollers/Police23"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 15.8182, 3, -4.81807 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police5" type="Sprite3D" parent="Buncha Rollers/Police23"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 15.1819, 3, -6.5453 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police6" type="Sprite3D" parent="Buncha Rollers/Police23"]
+transform = Transform( -5.96046e-08, 0, 1, 0, 2, 0, -2, 0, -2.98023e-08, 15.0681, 3, -8.50006 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police7" type="Sprite3D" parent="Buncha Rollers/Police23"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 14.7273, 3, -10.8179 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police8" type="Sprite3D" parent="Buncha Rollers/Police23"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 14.2232, 3, -12.8876 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police24" type="Spatial" parent="Buncha Rollers"]
+transform = Transform( 0.970393, 0, -0.241533, 0, 1, 0, 0.241533, 0, 0.970393, -4.4407, 0, -33.1728 )
+
+[node name="Police" type="Sprite3D" parent="Buncha Rollers/Police24"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 17, 3, -1 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police2" type="Sprite3D" parent="Buncha Rollers/Police24"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 17.4545, 3, 1.7272 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police3" type="Sprite3D" parent="Buncha Rollers/Police24"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 16.4546, 3, -3.18175 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police4" type="Sprite3D" parent="Buncha Rollers/Police24"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 15.8182, 3, -4.81807 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police5" type="Sprite3D" parent="Buncha Rollers/Police24"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 15.1819, 3, -6.5453 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police6" type="Sprite3D" parent="Buncha Rollers/Police24"]
+transform = Transform( -5.96046e-08, 0, 1, 0, 2, 0, -2, 0, -2.98023e-08, 15.0681, 3, -8.50006 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police7" type="Sprite3D" parent="Buncha Rollers/Police24"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 14.7273, 3, -10.8179 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police8" type="Sprite3D" parent="Buncha Rollers/Police24"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 14.2232, 3, -12.8876 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police25" type="Spatial" parent="Buncha Rollers"]
+transform = Transform( 0.970393, 0, -0.241533, 0, 1, 0, 0.241533, 0, 0.970393, -5.4407, 0, -38.1728 )
+
+[node name="Police" type="Sprite3D" parent="Buncha Rollers/Police25"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 17, 3, -1 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police2" type="Sprite3D" parent="Buncha Rollers/Police25"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 17.4545, 3, 1.7272 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police3" type="Sprite3D" parent="Buncha Rollers/Police25"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 16.4546, 3, -3.18175 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police4" type="Sprite3D" parent="Buncha Rollers/Police25"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 15.8182, 3, -4.81807 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police5" type="Sprite3D" parent="Buncha Rollers/Police25"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 15.1819, 3, -6.5453 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police6" type="Sprite3D" parent="Buncha Rollers/Police25"]
+transform = Transform( -5.96046e-08, 0, 1, 0, 2, 0, -2, 0, -2.98023e-08, 15.0681, 3, -8.50006 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police7" type="Sprite3D" parent="Buncha Rollers/Police25"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 14.7273, 3, -10.8179 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police8" type="Sprite3D" parent="Buncha Rollers/Police25"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 14.2232, 3, -12.8876 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police26" type="Spatial" parent="Buncha Rollers"]
+transform = Transform( 0.970393, 0, -0.241533, 0, 1, 0, 0.241533, 0, 0.970393, -0.440701, 0, -37.1728 )
+
+[node name="Police" type="Sprite3D" parent="Buncha Rollers/Police26"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 17, 3, -1 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police2" type="Sprite3D" parent="Buncha Rollers/Police26"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 17.4545, 3, 1.7272 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police3" type="Sprite3D" parent="Buncha Rollers/Police26"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 16.4546, 3, -3.18175 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police4" type="Sprite3D" parent="Buncha Rollers/Police26"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 15.8182, 3, -4.81807 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police5" type="Sprite3D" parent="Buncha Rollers/Police26"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 15.1819, 3, -6.5453 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police6" type="Sprite3D" parent="Buncha Rollers/Police26"]
+transform = Transform( -5.96046e-08, 0, 1, 0, 2, 0, -2, 0, -2.98023e-08, 15.0681, 3, -8.50006 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police7" type="Sprite3D" parent="Buncha Rollers/Police26"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 14.7273, 3, -10.8179 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police8" type="Sprite3D" parent="Buncha Rollers/Police26"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 14.2232, 3, -12.8876 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police27" type="Spatial" parent="Buncha Rollers"]
+transform = Transform( 0.970393, 0, -0.241533, 0, 1, 0, 0.241533, 0, 0.970393, -0.440701, 0, -37.1728 )
+
+[node name="Police" type="Sprite3D" parent="Buncha Rollers/Police27"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 17, 3, -1 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police2" type="Sprite3D" parent="Buncha Rollers/Police27"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 17.4545, 3, 1.7272 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police3" type="Sprite3D" parent="Buncha Rollers/Police27"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 16.4546, 3, -3.18175 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police4" type="Sprite3D" parent="Buncha Rollers/Police27"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 15.8182, 3, -4.81807 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police5" type="Sprite3D" parent="Buncha Rollers/Police27"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 15.1819, 3, -6.5453 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police6" type="Sprite3D" parent="Buncha Rollers/Police27"]
+transform = Transform( -5.96046e-08, 0, 1, 0, 2, 0, -2, 0, -2.98023e-08, 15.0681, 3, -8.50006 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police7" type="Sprite3D" parent="Buncha Rollers/Police27"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 14.7273, 3, -10.8179 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police8" type="Sprite3D" parent="Buncha Rollers/Police27"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 14.2232, 3, -12.8876 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police20" type="Spatial" parent="Buncha Rollers"]
+transform = Transform( 0.784701, 0, -0.619875, 0, 1, 0, 0.619875, 0, 0.784701, -0.522345, 0, -34.881 )
+
+[node name="Police" type="Sprite3D" parent="Buncha Rollers/Police20"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 17, 3, -1 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police2" type="Sprite3D" parent="Buncha Rollers/Police20"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 17.4545, 3, 1.7272 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police3" type="Sprite3D" parent="Buncha Rollers/Police20"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 16.4546, 3, -3.18175 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police4" type="Sprite3D" parent="Buncha Rollers/Police20"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 15.8182, 3, -4.81807 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police5" type="Sprite3D" parent="Buncha Rollers/Police20"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 15.1819, 3, -6.5453 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police6" type="Sprite3D" parent="Buncha Rollers/Police20"]
+transform = Transform( -5.96046e-08, 0, 1, 0, 2, 0, -2, 0, -2.98023e-08, 15.0681, 3, -8.50006 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police7" type="Sprite3D" parent="Buncha Rollers/Police20"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 14.7273, 3, -10.8179 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police8" type="Sprite3D" parent="Buncha Rollers/Police20"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 14.2232, 3, -12.8876 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police21" type="Spatial" parent="Buncha Rollers"]
+transform = Transform( 0.999886, 2.65747e-08, -0.0150965, -2.64357e-08, 1, 9.40605e-09, 0.0150965, -9.00589e-09, 0.999886, -13.7915, 10.8544, -9.7695 )
+
+[node name="Police" type="Sprite3D" parent="Buncha Rollers/Police21"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 17, 3, -1 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police2" type="Sprite3D" parent="Buncha Rollers/Police21"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 17.4545, 3, 1.7272 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police3" type="Sprite3D" parent="Buncha Rollers/Police21"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 16.4546, 3, -3.18175 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police4" type="Sprite3D" parent="Buncha Rollers/Police21"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 15.8182, 3, -4.81807 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police5" type="Sprite3D" parent="Buncha Rollers/Police21"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 15.1819, 3, -6.5453 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police6" type="Sprite3D" parent="Buncha Rollers/Police21"]
+transform = Transform( -5.96046e-08, 0, 1, 0, 2, 0, -2, 0, -2.98023e-08, 15.0681, 3, -8.50006 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police7" type="Sprite3D" parent="Buncha Rollers/Police21"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 14.7273, 3, -10.8179 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police8" type="Sprite3D" parent="Buncha Rollers/Police21"]
+transform = Transform( -8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 14.2232, 3, -12.8876 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police9" type="Sprite3D" parent="Buncha Rollers/Police21"]
+transform = Transform( -8.75443e-08, -1.66533e-15, 1, 0, 2, -4.71845e-16, -2, 0, -4.37722e-08, -12.8556, 23.8551, -32.8325 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Police10" type="Sprite3D" parent="Buncha Rollers/Police21"]
+transform = Transform( -8.75443e-08, -1.66533e-15, 1, 0, 2, -4.71845e-16, -2, 0, -4.37722e-08, -12.8127, 23.8551, -29.9893 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="SirensSFX" type="AudioStreamPlayer3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.65469, 0, -13.2648 )
+stream = ExtResource( 8 )
+unit_db = 15.575
+autoplay = true
+bus = "SFX"
+
+[node name="Rat Stampede" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 0, 22 )
+
+[node name="Row" type="Spatial" parent="Rat Stampede"]
+
+[node name="Rat" type="StaticBody" parent="Rat Stampede/Row"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.12296, 1.58268, 5.84955 )
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite3D" parent="Rat Stampede/Row/Rat"]
+billboard = 1
+texture = ExtResource( 10 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Rat Stampede/Row/Rat"]
+shape = SubResource( 21 )
+
+[node name="Rat2" type="StaticBody" parent="Rat Stampede/Row"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.12296, 1.58268, 5.84955 )
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite3D" parent="Rat Stampede/Row/Rat2"]
+billboard = 1
+texture = ExtResource( 10 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Rat Stampede/Row/Rat2"]
+shape = SubResource( 21 )
+
+[node name="Rat3" type="StaticBody" parent="Rat Stampede/Row"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.122959, 1.58268, 5.84955 )
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite3D" parent="Rat Stampede/Row/Rat3"]
+billboard = 1
+texture = ExtResource( 10 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Rat Stampede/Row/Rat3"]
+shape = SubResource( 21 )
+
+[node name="Rat4" type="StaticBody" parent="Rat Stampede/Row"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.12296, 1.58268, 5.84955 )
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite3D" parent="Rat Stampede/Row/Rat4"]
+billboard = 1
+texture = ExtResource( 10 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Rat Stampede/Row/Rat4"]
+shape = SubResource( 21 )
+
+[node name="Rat5" type="StaticBody" parent="Rat Stampede/Row"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.877041, 1.58268, 5.84955 )
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite3D" parent="Rat Stampede/Row/Rat5"]
+billboard = 1
+texture = ExtResource( 10 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Rat Stampede/Row/Rat5"]
+shape = SubResource( 21 )
+
+[node name="Rat6" type="StaticBody" parent="Rat Stampede/Row"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.12296, 1.58268, 5.84955 )
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite3D" parent="Rat Stampede/Row/Rat6"]
+billboard = 1
+texture = ExtResource( 10 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Rat Stampede/Row/Rat6"]
+shape = SubResource( 21 )
+
+[node name="Rat7" type="StaticBody" parent="Rat Stampede/Row"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.87704, 1.58268, 5.84955 )
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite3D" parent="Rat Stampede/Row/Rat7"]
+billboard = 1
+texture = ExtResource( 10 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Rat Stampede/Row/Rat7"]
+shape = SubResource( 21 )
+
+[node name="Rat8" type="StaticBody" parent="Rat Stampede/Row"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.12296, 1.58268, 5.84955 )
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite3D" parent="Rat Stampede/Row/Rat8"]
+billboard = 1
+texture = ExtResource( 10 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Rat Stampede/Row/Rat8"]
+shape = SubResource( 21 )
+
+[node name="Rat9" type="StaticBody" parent="Rat Stampede/Row"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.87704, 1.58268, 5.84955 )
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite3D" parent="Rat Stampede/Row/Rat9"]
+billboard = 1
+texture = ExtResource( 10 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Rat Stampede/Row/Rat9"]
+shape = SubResource( 21 )
+
+[node name="Row2" type="Spatial" parent="Rat Stampede"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1 )
+
+[node name="Rat" type="StaticBody" parent="Rat Stampede/Row2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.12296, 1.58268, 5.84955 )
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite3D" parent="Rat Stampede/Row2/Rat"]
+billboard = 1
+texture = ExtResource( 10 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Rat Stampede/Row2/Rat"]
+shape = SubResource( 21 )
+
+[node name="Rat2" type="StaticBody" parent="Rat Stampede/Row2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.12296, 1.58268, 5.84955 )
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite3D" parent="Rat Stampede/Row2/Rat2"]
+billboard = 1
+texture = ExtResource( 10 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Rat Stampede/Row2/Rat2"]
+shape = SubResource( 21 )
+
+[node name="Rat3" type="StaticBody" parent="Rat Stampede/Row2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.122959, 1.58268, 5.84955 )
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite3D" parent="Rat Stampede/Row2/Rat3"]
+billboard = 1
+texture = ExtResource( 10 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Rat Stampede/Row2/Rat3"]
+shape = SubResource( 21 )
+
+[node name="Rat4" type="StaticBody" parent="Rat Stampede/Row2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.12296, 1.58268, 5.84955 )
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite3D" parent="Rat Stampede/Row2/Rat4"]
+billboard = 1
+texture = ExtResource( 10 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Rat Stampede/Row2/Rat4"]
+shape = SubResource( 21 )
+
+[node name="Rat5" type="StaticBody" parent="Rat Stampede/Row2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.877041, 1.58268, 5.84955 )
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite3D" parent="Rat Stampede/Row2/Rat5"]
+billboard = 1
+texture = ExtResource( 10 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Rat Stampede/Row2/Rat5"]
+shape = SubResource( 21 )
+
+[node name="Rat6" type="StaticBody" parent="Rat Stampede/Row2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.12296, 1.58268, 5.84955 )
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite3D" parent="Rat Stampede/Row2/Rat6"]
+billboard = 1
+texture = ExtResource( 10 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Rat Stampede/Row2/Rat6"]
+shape = SubResource( 21 )
+
+[node name="Rat7" type="StaticBody" parent="Rat Stampede/Row2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.87704, 1.58268, 5.84955 )
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite3D" parent="Rat Stampede/Row2/Rat7"]
+billboard = 1
+texture = ExtResource( 10 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Rat Stampede/Row2/Rat7"]
+shape = SubResource( 21 )
+
+[node name="Rat8" type="StaticBody" parent="Rat Stampede/Row2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.12296, 1.58268, 5.84955 )
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite3D" parent="Rat Stampede/Row2/Rat8"]
+billboard = 1
+texture = ExtResource( 10 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Rat Stampede/Row2/Rat8"]
+shape = SubResource( 21 )
+
+[node name="Rat9" type="StaticBody" parent="Rat Stampede/Row2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.87704, 1.58268, 5.84955 )
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite3D" parent="Rat Stampede/Row2/Rat9"]
+billboard = 1
+texture = ExtResource( 10 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Rat Stampede/Row2/Rat9"]
+shape = SubResource( 21 )
+
+[node name="Row3" type="Spatial" parent="Rat Stampede"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2 )
+
+[node name="Rat" type="StaticBody" parent="Rat Stampede/Row3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.12296, 1.58268, 5.84955 )
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite3D" parent="Rat Stampede/Row3/Rat"]
+billboard = 1
+texture = ExtResource( 10 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Rat Stampede/Row3/Rat"]
+shape = SubResource( 21 )
+
+[node name="Rat2" type="StaticBody" parent="Rat Stampede/Row3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.12296, 1.58268, 5.84955 )
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite3D" parent="Rat Stampede/Row3/Rat2"]
+billboard = 1
+texture = ExtResource( 10 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Rat Stampede/Row3/Rat2"]
+shape = SubResource( 21 )
+
+[node name="Rat3" type="StaticBody" parent="Rat Stampede/Row3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.122959, 1.58268, 5.84955 )
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite3D" parent="Rat Stampede/Row3/Rat3"]
+billboard = 1
+texture = ExtResource( 10 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Rat Stampede/Row3/Rat3"]
+shape = SubResource( 21 )
+
+[node name="Rat4" type="StaticBody" parent="Rat Stampede/Row3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.12296, 1.58268, 5.84955 )
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite3D" parent="Rat Stampede/Row3/Rat4"]
+billboard = 1
+texture = ExtResource( 10 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Rat Stampede/Row3/Rat4"]
+shape = SubResource( 21 )
+
+[node name="Rat5" type="StaticBody" parent="Rat Stampede/Row3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.877041, 1.58268, 5.84955 )
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite3D" parent="Rat Stampede/Row3/Rat5"]
+billboard = 1
+texture = ExtResource( 10 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Rat Stampede/Row3/Rat5"]
+shape = SubResource( 21 )
+
+[node name="Rat6" type="StaticBody" parent="Rat Stampede/Row3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.12296, 1.58268, 5.84955 )
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite3D" parent="Rat Stampede/Row3/Rat6"]
+billboard = 1
+texture = ExtResource( 10 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Rat Stampede/Row3/Rat6"]
+shape = SubResource( 21 )
+
+[node name="Rat7" type="StaticBody" parent="Rat Stampede/Row3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.87704, 1.58268, 5.84955 )
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite3D" parent="Rat Stampede/Row3/Rat7"]
+billboard = 1
+texture = ExtResource( 10 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Rat Stampede/Row3/Rat7"]
+shape = SubResource( 21 )
+
+[node name="Rat8" type="StaticBody" parent="Rat Stampede/Row3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.12296, 1.58268, 5.84955 )
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite3D" parent="Rat Stampede/Row3/Rat8"]
+billboard = 1
+texture = ExtResource( 10 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Rat Stampede/Row3/Rat8"]
+shape = SubResource( 21 )
+
+[node name="Rat9" type="StaticBody" parent="Rat Stampede/Row3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.87704, 1.58268, 5.84955 )
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite3D" parent="Rat Stampede/Row3/Rat9"]
+billboard = 1
+texture = ExtResource( 10 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Rat Stampede/Row3/Rat9"]
+shape = SubResource( 21 )
+
+[node name="Row4" type="Spatial" parent="Rat Stampede"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3 )
+
+[node name="Rat" type="StaticBody" parent="Rat Stampede/Row4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.12296, 1.58268, 5.84955 )
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite3D" parent="Rat Stampede/Row4/Rat"]
+billboard = 1
+texture = ExtResource( 10 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Rat Stampede/Row4/Rat"]
+shape = SubResource( 21 )
+
+[node name="Rat2" type="StaticBody" parent="Rat Stampede/Row4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.12296, 1.58268, 5.84955 )
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite3D" parent="Rat Stampede/Row4/Rat2"]
+billboard = 1
+texture = ExtResource( 10 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Rat Stampede/Row4/Rat2"]
+shape = SubResource( 21 )
+
+[node name="Rat3" type="StaticBody" parent="Rat Stampede/Row4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.122959, 1.58268, 5.84955 )
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite3D" parent="Rat Stampede/Row4/Rat3"]
+billboard = 1
+texture = ExtResource( 10 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Rat Stampede/Row4/Rat3"]
+shape = SubResource( 21 )
+
+[node name="Rat4" type="StaticBody" parent="Rat Stampede/Row4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.12296, 1.58268, 5.84955 )
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite3D" parent="Rat Stampede/Row4/Rat4"]
+billboard = 1
+texture = ExtResource( 10 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Rat Stampede/Row4/Rat4"]
+shape = SubResource( 21 )
+
+[node name="Rat5" type="StaticBody" parent="Rat Stampede/Row4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.877041, 1.58268, 5.84955 )
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite3D" parent="Rat Stampede/Row4/Rat5"]
+billboard = 1
+texture = ExtResource( 10 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Rat Stampede/Row4/Rat5"]
+shape = SubResource( 21 )
+
+[node name="Rat6" type="StaticBody" parent="Rat Stampede/Row4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.12296, 1.58268, 5.84955 )
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite3D" parent="Rat Stampede/Row4/Rat6"]
+billboard = 1
+texture = ExtResource( 10 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Rat Stampede/Row4/Rat6"]
+shape = SubResource( 21 )
+
+[node name="Rat7" type="StaticBody" parent="Rat Stampede/Row4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.87704, 1.58268, 5.84955 )
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite3D" parent="Rat Stampede/Row4/Rat7"]
+billboard = 1
+texture = ExtResource( 10 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Rat Stampede/Row4/Rat7"]
+shape = SubResource( 21 )
+
+[node name="Rat8" type="StaticBody" parent="Rat Stampede/Row4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.12296, 1.58268, 5.84955 )
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite3D" parent="Rat Stampede/Row4/Rat8"]
+billboard = 1
+texture = ExtResource( 10 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Rat Stampede/Row4/Rat8"]
+shape = SubResource( 21 )
+
+[node name="Rat9" type="StaticBody" parent="Rat Stampede/Row4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.87704, 1.58268, 5.84955 )
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite3D" parent="Rat Stampede/Row4/Rat9"]
+billboard = 1
+texture = ExtResource( 10 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Rat Stampede/Row4/Rat9"]
+shape = SubResource( 21 )
+
+[node name="Row5" type="Spatial" parent="Rat Stampede"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4 )
+
+[node name="Rat" type="StaticBody" parent="Rat Stampede/Row5"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.12296, 1.58268, 5.84955 )
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite3D" parent="Rat Stampede/Row5/Rat"]
+billboard = 1
+texture = ExtResource( 10 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Rat Stampede/Row5/Rat"]
+shape = SubResource( 21 )
+
+[node name="Rat2" type="StaticBody" parent="Rat Stampede/Row5"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.12296, 1.58268, 5.84955 )
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite3D" parent="Rat Stampede/Row5/Rat2"]
+billboard = 1
+texture = ExtResource( 10 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Rat Stampede/Row5/Rat2"]
+shape = SubResource( 21 )
+
+[node name="Rat3" type="StaticBody" parent="Rat Stampede/Row5"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.122959, 1.58268, 5.84955 )
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite3D" parent="Rat Stampede/Row5/Rat3"]
+billboard = 1
+texture = ExtResource( 10 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Rat Stampede/Row5/Rat3"]
+shape = SubResource( 21 )
+
+[node name="Rat4" type="StaticBody" parent="Rat Stampede/Row5"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.12296, 1.58268, 5.84955 )
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite3D" parent="Rat Stampede/Row5/Rat4"]
+billboard = 1
+texture = ExtResource( 10 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Rat Stampede/Row5/Rat4"]
+shape = SubResource( 21 )
+
+[node name="Rat5" type="StaticBody" parent="Rat Stampede/Row5"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.877041, 1.58268, 5.84955 )
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite3D" parent="Rat Stampede/Row5/Rat5"]
+billboard = 1
+texture = ExtResource( 10 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Rat Stampede/Row5/Rat5"]
+shape = SubResource( 21 )
+
+[node name="Rat6" type="StaticBody" parent="Rat Stampede/Row5"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.12296, 1.58268, 5.84955 )
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite3D" parent="Rat Stampede/Row5/Rat6"]
+billboard = 1
+texture = ExtResource( 10 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Rat Stampede/Row5/Rat6"]
+shape = SubResource( 21 )
+
+[node name="Rat7" type="StaticBody" parent="Rat Stampede/Row5"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.87704, 1.58268, 5.84955 )
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite3D" parent="Rat Stampede/Row5/Rat7"]
+billboard = 1
+texture = ExtResource( 10 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Rat Stampede/Row5/Rat7"]
+shape = SubResource( 21 )
+
+[node name="Rat8" type="StaticBody" parent="Rat Stampede/Row5"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.12296, 1.58268, 5.84955 )
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite3D" parent="Rat Stampede/Row5/Rat8"]
+billboard = 1
+texture = ExtResource( 10 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Rat Stampede/Row5/Rat8"]
+shape = SubResource( 21 )
+
+[node name="Rat9" type="StaticBody" parent="Rat Stampede/Row5"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.87704, 1.58268, 5.84955 )
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite3D" parent="Rat Stampede/Row5/Rat9"]
+billboard = 1
+texture = ExtResource( 10 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Rat Stampede/Row5/Rat9"]
+shape = SubResource( 21 )
+
+[node name="Row6" type="Spatial" parent="Rat Stampede"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5 )
+
+[node name="Rat" type="StaticBody" parent="Rat Stampede/Row6"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.12296, 1.58268, 5.84955 )
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite3D" parent="Rat Stampede/Row6/Rat"]
+billboard = 1
+texture = ExtResource( 10 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Rat Stampede/Row6/Rat"]
+shape = SubResource( 21 )
+
+[node name="Rat2" type="StaticBody" parent="Rat Stampede/Row6"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.12296, 1.58268, 5.84955 )
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite3D" parent="Rat Stampede/Row6/Rat2"]
+billboard = 1
+texture = ExtResource( 10 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Rat Stampede/Row6/Rat2"]
+shape = SubResource( 21 )
+
+[node name="Rat3" type="StaticBody" parent="Rat Stampede/Row6"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.122959, 1.58268, 5.84955 )
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite3D" parent="Rat Stampede/Row6/Rat3"]
+billboard = 1
+texture = ExtResource( 10 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Rat Stampede/Row6/Rat3"]
+shape = SubResource( 21 )
+
+[node name="Rat4" type="StaticBody" parent="Rat Stampede/Row6"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.12296, 1.58268, 5.84955 )
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite3D" parent="Rat Stampede/Row6/Rat4"]
+billboard = 1
+texture = ExtResource( 10 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Rat Stampede/Row6/Rat4"]
+shape = SubResource( 21 )
+
+[node name="Rat5" type="StaticBody" parent="Rat Stampede/Row6"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.877041, 1.58268, 5.84955 )
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite3D" parent="Rat Stampede/Row6/Rat5"]
+billboard = 1
+texture = ExtResource( 10 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Rat Stampede/Row6/Rat5"]
+shape = SubResource( 21 )
+
+[node name="Rat6" type="StaticBody" parent="Rat Stampede/Row6"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.12296, 1.58268, 5.84955 )
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite3D" parent="Rat Stampede/Row6/Rat6"]
+billboard = 1
+texture = ExtResource( 10 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Rat Stampede/Row6/Rat6"]
+shape = SubResource( 21 )
+
+[node name="Rat7" type="StaticBody" parent="Rat Stampede/Row6"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.87704, 1.58268, 5.84955 )
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite3D" parent="Rat Stampede/Row6/Rat7"]
+billboard = 1
+texture = ExtResource( 10 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Rat Stampede/Row6/Rat7"]
+shape = SubResource( 21 )
+
+[node name="Rat8" type="StaticBody" parent="Rat Stampede/Row6"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.12296, 1.58268, 5.84955 )
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite3D" parent="Rat Stampede/Row6/Rat8"]
+billboard = 1
+texture = ExtResource( 10 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Rat Stampede/Row6/Rat8"]
+shape = SubResource( 21 )
+
+[node name="Rat9" type="StaticBody" parent="Rat Stampede/Row6"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.87704, 1.58268, 5.84955 )
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite3D" parent="Rat Stampede/Row6/Rat9"]
+billboard = 1
+texture = ExtResource( 10 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Rat Stampede/Row6/Rat9"]
+shape = SubResource( 21 )
+
+[node name="Row7" type="Spatial" parent="Rat Stampede"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6 )
+
+[node name="Rat" type="StaticBody" parent="Rat Stampede/Row7"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.12296, 1.58268, 5.84955 )
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite3D" parent="Rat Stampede/Row7/Rat"]
+billboard = 1
+texture = ExtResource( 10 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Rat Stampede/Row7/Rat"]
+shape = SubResource( 21 )
+
+[node name="Rat2" type="StaticBody" parent="Rat Stampede/Row7"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.12296, 1.58268, 5.84955 )
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite3D" parent="Rat Stampede/Row7/Rat2"]
+billboard = 1
+texture = ExtResource( 10 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Rat Stampede/Row7/Rat2"]
+shape = SubResource( 21 )
+
+[node name="Rat3" type="StaticBody" parent="Rat Stampede/Row7"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.122959, 1.58268, 5.84955 )
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite3D" parent="Rat Stampede/Row7/Rat3"]
+billboard = 1
+texture = ExtResource( 10 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Rat Stampede/Row7/Rat3"]
+shape = SubResource( 21 )
+
+[node name="Rat4" type="StaticBody" parent="Rat Stampede/Row7"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.12296, 1.58268, 5.84955 )
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite3D" parent="Rat Stampede/Row7/Rat4"]
+billboard = 1
+texture = ExtResource( 10 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Rat Stampede/Row7/Rat4"]
+shape = SubResource( 21 )
+
+[node name="Rat5" type="StaticBody" parent="Rat Stampede/Row7"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.877041, 1.58268, 5.84955 )
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite3D" parent="Rat Stampede/Row7/Rat5"]
+billboard = 1
+texture = ExtResource( 10 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Rat Stampede/Row7/Rat5"]
+shape = SubResource( 21 )
+
+[node name="Rat6" type="StaticBody" parent="Rat Stampede/Row7"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.12296, 1.58268, 5.84955 )
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite3D" parent="Rat Stampede/Row7/Rat6"]
+billboard = 1
+texture = ExtResource( 10 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Rat Stampede/Row7/Rat6"]
+shape = SubResource( 21 )
+
+[node name="Rat7" type="StaticBody" parent="Rat Stampede/Row7"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.87704, 1.58268, 5.84955 )
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite3D" parent="Rat Stampede/Row7/Rat7"]
+billboard = 1
+texture = ExtResource( 10 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Rat Stampede/Row7/Rat7"]
+shape = SubResource( 21 )
+
+[node name="Rat8" type="StaticBody" parent="Rat Stampede/Row7"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.12296, 1.58268, 5.84955 )
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite3D" parent="Rat Stampede/Row7/Rat8"]
+billboard = 1
+texture = ExtResource( 10 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Rat Stampede/Row7/Rat8"]
+shape = SubResource( 21 )
+
+[node name="Rat9" type="StaticBody" parent="Rat Stampede/Row7"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.87704, 1.58268, 5.84955 )
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite3D" parent="Rat Stampede/Row7/Rat9"]
+billboard = 1
+texture = ExtResource( 10 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Rat Stampede/Row7/Rat9"]
+shape = SubResource( 21 )
+
+[node name="Row8" type="Spatial" parent="Rat Stampede"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7 )
+
+[node name="Rat" type="StaticBody" parent="Rat Stampede/Row8"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.12296, 1.58268, 5.84955 )
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite3D" parent="Rat Stampede/Row8/Rat"]
+billboard = 1
+texture = ExtResource( 10 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Rat Stampede/Row8/Rat"]
+shape = SubResource( 21 )
+
+[node name="Rat2" type="StaticBody" parent="Rat Stampede/Row8"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.12296, 1.58268, 5.84955 )
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite3D" parent="Rat Stampede/Row8/Rat2"]
+billboard = 1
+texture = ExtResource( 10 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Rat Stampede/Row8/Rat2"]
+shape = SubResource( 21 )
+
+[node name="Rat3" type="StaticBody" parent="Rat Stampede/Row8"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.122959, 1.58268, 5.84955 )
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite3D" parent="Rat Stampede/Row8/Rat3"]
+billboard = 1
+texture = ExtResource( 10 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Rat Stampede/Row8/Rat3"]
+shape = SubResource( 21 )
+
+[node name="Rat4" type="StaticBody" parent="Rat Stampede/Row8"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.12296, 1.58268, 5.84955 )
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite3D" parent="Rat Stampede/Row8/Rat4"]
+billboard = 1
+texture = ExtResource( 10 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Rat Stampede/Row8/Rat4"]
+shape = SubResource( 21 )
+
+[node name="Rat5" type="StaticBody" parent="Rat Stampede/Row8"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.877041, 1.58268, 5.84955 )
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite3D" parent="Rat Stampede/Row8/Rat5"]
+billboard = 1
+texture = ExtResource( 10 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Rat Stampede/Row8/Rat5"]
+shape = SubResource( 21 )
+
+[node name="Rat6" type="StaticBody" parent="Rat Stampede/Row8"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.12296, 1.58268, 5.84955 )
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite3D" parent="Rat Stampede/Row8/Rat6"]
+billboard = 1
+texture = ExtResource( 10 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Rat Stampede/Row8/Rat6"]
+shape = SubResource( 21 )
+
+[node name="Rat7" type="StaticBody" parent="Rat Stampede/Row8"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.87704, 1.58268, 5.84955 )
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite3D" parent="Rat Stampede/Row8/Rat7"]
+billboard = 1
+texture = ExtResource( 10 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Rat Stampede/Row8/Rat7"]
+shape = SubResource( 21 )
+
+[node name="Rat8" type="StaticBody" parent="Rat Stampede/Row8"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.12296, 1.58268, 5.84955 )
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite3D" parent="Rat Stampede/Row8/Rat8"]
+billboard = 1
+texture = ExtResource( 10 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Rat Stampede/Row8/Rat8"]
+shape = SubResource( 21 )
+
+[node name="Rat9" type="StaticBody" parent="Rat Stampede/Row8"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.87704, 1.58268, 5.84955 )
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite3D" parent="Rat Stampede/Row8/Rat9"]
+billboard = 1
+texture = ExtResource( 10 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Rat Stampede/Row8/Rat9"]
+shape = SubResource( 21 )
+
+[node name="Row9" type="Spatial" parent="Rat Stampede"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8 )
+
+[node name="Rat" type="StaticBody" parent="Rat Stampede/Row9"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.12296, 1.58268, 5.84955 )
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite3D" parent="Rat Stampede/Row9/Rat"]
+billboard = 1
+texture = ExtResource( 10 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Rat Stampede/Row9/Rat"]
+shape = SubResource( 21 )
+
+[node name="Rat2" type="StaticBody" parent="Rat Stampede/Row9"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.12296, 1.58268, 5.84955 )
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite3D" parent="Rat Stampede/Row9/Rat2"]
+billboard = 1
+texture = ExtResource( 10 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Rat Stampede/Row9/Rat2"]
+shape = SubResource( 21 )
+
+[node name="Rat3" type="StaticBody" parent="Rat Stampede/Row9"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.122959, 1.58268, 5.84955 )
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite3D" parent="Rat Stampede/Row9/Rat3"]
+billboard = 1
+texture = ExtResource( 10 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Rat Stampede/Row9/Rat3"]
+shape = SubResource( 21 )
+
+[node name="Rat4" type="StaticBody" parent="Rat Stampede/Row9"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.12296, 1.58268, 5.84955 )
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite3D" parent="Rat Stampede/Row9/Rat4"]
+billboard = 1
+texture = ExtResource( 10 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Rat Stampede/Row9/Rat4"]
+shape = SubResource( 21 )
+
+[node name="Rat5" type="StaticBody" parent="Rat Stampede/Row9"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.877041, 1.58268, 5.84955 )
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite3D" parent="Rat Stampede/Row9/Rat5"]
+billboard = 1
+texture = ExtResource( 10 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Rat Stampede/Row9/Rat5"]
+shape = SubResource( 21 )
+
+[node name="Rat6" type="StaticBody" parent="Rat Stampede/Row9"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.12296, 1.58268, 5.84955 )
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite3D" parent="Rat Stampede/Row9/Rat6"]
+billboard = 1
+texture = ExtResource( 10 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Rat Stampede/Row9/Rat6"]
+shape = SubResource( 21 )
+
+[node name="Rat7" type="StaticBody" parent="Rat Stampede/Row9"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.87704, 1.58268, 5.84955 )
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite3D" parent="Rat Stampede/Row9/Rat7"]
+billboard = 1
+texture = ExtResource( 10 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Rat Stampede/Row9/Rat7"]
+shape = SubResource( 21 )
+
+[node name="Rat8" type="StaticBody" parent="Rat Stampede/Row9"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.12296, 1.58268, 5.84955 )
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite3D" parent="Rat Stampede/Row9/Rat8"]
+billboard = 1
+texture = ExtResource( 10 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Rat Stampede/Row9/Rat8"]
+shape = SubResource( 21 )
+
+[node name="Rat9" type="StaticBody" parent="Rat Stampede/Row9"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.87704, 1.58268, 5.84955 )
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite3D" parent="Rat Stampede/Row9/Rat9"]
+billboard = 1
+texture = ExtResource( 10 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Rat Stampede/Row9/Rat9"]
+shape = SubResource( 21 )
+
+[node name="Row10" type="Spatial" parent="Rat Stampede"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9 )
+
+[node name="Rat" type="StaticBody" parent="Rat Stampede/Row10"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.12296, 1.58268, 5.84955 )
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite3D" parent="Rat Stampede/Row10/Rat"]
+billboard = 1
+texture = ExtResource( 10 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Rat Stampede/Row10/Rat"]
+shape = SubResource( 21 )
+
+[node name="Rat2" type="StaticBody" parent="Rat Stampede/Row10"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.12296, 1.58268, 5.84955 )
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite3D" parent="Rat Stampede/Row10/Rat2"]
+billboard = 1
+texture = ExtResource( 10 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Rat Stampede/Row10/Rat2"]
+shape = SubResource( 21 )
+
+[node name="Rat3" type="StaticBody" parent="Rat Stampede/Row10"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.122959, 1.58268, 5.84955 )
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite3D" parent="Rat Stampede/Row10/Rat3"]
+billboard = 1
+texture = ExtResource( 10 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Rat Stampede/Row10/Rat3"]
+shape = SubResource( 21 )
+
+[node name="Rat4" type="StaticBody" parent="Rat Stampede/Row10"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.12296, 1.58268, 5.84955 )
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite3D" parent="Rat Stampede/Row10/Rat4"]
+billboard = 1
+texture = ExtResource( 10 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Rat Stampede/Row10/Rat4"]
+shape = SubResource( 21 )
+
+[node name="Rat5" type="StaticBody" parent="Rat Stampede/Row10"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.877041, 1.58268, 5.84955 )
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite3D" parent="Rat Stampede/Row10/Rat5"]
+billboard = 1
+texture = ExtResource( 10 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Rat Stampede/Row10/Rat5"]
+shape = SubResource( 21 )
+
+[node name="Rat6" type="StaticBody" parent="Rat Stampede/Row10"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.12296, 1.58268, 5.84955 )
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite3D" parent="Rat Stampede/Row10/Rat6"]
+billboard = 1
+texture = ExtResource( 10 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Rat Stampede/Row10/Rat6"]
+shape = SubResource( 21 )
+
+[node name="Rat7" type="StaticBody" parent="Rat Stampede/Row10"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.87704, 1.58268, 5.84955 )
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite3D" parent="Rat Stampede/Row10/Rat7"]
+billboard = 1
+texture = ExtResource( 10 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Rat Stampede/Row10/Rat7"]
+shape = SubResource( 21 )
+
+[node name="Rat8" type="StaticBody" parent="Rat Stampede/Row10"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.12296, 1.58268, 5.84955 )
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite3D" parent="Rat Stampede/Row10/Rat8"]
+billboard = 1
+texture = ExtResource( 10 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Rat Stampede/Row10/Rat8"]
+shape = SubResource( 21 )
+
+[node name="Rat9" type="StaticBody" parent="Rat Stampede/Row10"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.87704, 1.58268, 5.84955 )
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite3D" parent="Rat Stampede/Row10/Rat9"]
+billboard = 1
+texture = ExtResource( 10 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Rat Stampede/Row10/Rat9"]
+shape = SubResource( 21 )
+
+[node name="StampedeSFX" type="AudioStreamPlayer3D" parent="Rat Stampede"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 10 )
+stream = ExtResource( 17 )
+unit_db = 5.0
+bus = "SFX"
+
+[node name="Middle Finger" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -20.0
+margin_top = -40.0
+margin_right = 20.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="Middle Finger"]
+position = Vector2( 0, 104 )
+texture = ExtResource( 12 )
+
+[node name="BFG" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="BFG"]
+position = Vector2( 152, 312 )
+texture = ExtResource( 18 )
+
+[node name="GunCockSFX" type="AudioStreamPlayer" parent="BFG"]
+stream = ExtResource( 19 )
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

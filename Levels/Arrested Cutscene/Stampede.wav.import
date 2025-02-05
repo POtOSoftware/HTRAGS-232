@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Stampede.wav-beeb4ebd01e471b8db956bdc0f5ac952.sample"
+
+[deps]
+
+source_file="res://Levels/Arrested Cutscene/Stampede.wav"
+dest_files=[ "res://.import/Stampede.wav-beeb4ebd01e471b8db956bdc0f5ac952.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

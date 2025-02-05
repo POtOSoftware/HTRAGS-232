@@ -1,0 +1,143 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Levels/Mario/Goomba.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Levels/Mario/Ground.png" type="Texture" id=3]
+[ext_resource path="res://Levels/Mario/Peach.png" type="Texture" id=4]
+[ext_resource path="res://Levels/Mario/Mario.gd" type="Script" id=5]
+[ext_resource path="res://Levels/Mario/Peach.gd" type="Script" id=6]
+[ext_resource path="res://Levels/Road/Sky.png" type="Texture" id=7]
+[ext_resource path="res://Levels/Mario/Mario.png" type="Texture" id=8]
+[ext_resource path="res://Levels/House_Part2/GunCock.wav" type="AudioStream" id=9]
+
+[sub_resource type="PanoramaSky" id=4]
+panorama = ExtResource( 7 )
+
+[sub_resource type="Environment" id=5]
+background_mode = 2
+background_sky = SubResource( 4 )
+ambient_light_energy = 5.0
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_texture = ExtResource( 3 )
+uv1_triplanar = true
+
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 1, 3, 1 )
+
+[sub_resource type="BoxShape" id=3]
+extents = Vector3( 500, 1, 500 )
+
+[node name="Mario" type="Spatial"]
+script = ExtResource( 5 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 5 )
+
+[node name="Goombas" type="Spatial" parent="."]
+
+[node name="Goomba" parent="Goombas" instance=ExtResource( 2 )]
+transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, -26 )
+
+[node name="Goomba2" parent="Goombas" instance=ExtResource( 2 )]
+transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, -37 )
+
+[node name="Goomba3" parent="Goombas" instance=ExtResource( 2 )]
+transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, -51 )
+
+[node name="Surrounding Peach" type="Spatial" parent="Goombas"]
+
+[node name="Goomba" parent="Goombas/Surrounding Peach" instance=ExtResource( 2 )]
+transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, -61 )
+
+[node name="Goomba2" parent="Goombas/Surrounding Peach" instance=ExtResource( 2 )]
+transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -3, 0, -63 )
+
+[node name="Goomba3" parent="Goombas/Surrounding Peach" instance=ExtResource( 2 )]
+transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -3, 0, -67 )
+
+[node name="Goomba4" parent="Goombas/Surrounding Peach" instance=ExtResource( 2 )]
+transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, -70 )
+
+[node name="Goomba5" parent="Goombas/Surrounding Peach" instance=ExtResource( 2 )]
+transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 3, 0, -67 )
+
+[node name="Goomba6" parent="Goombas/Surrounding Peach" instance=ExtResource( 2 )]
+transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 4, 0, -64 )
+
+[node name="Goomba7" parent="Goombas/Surrounding Peach" instance=ExtResource( 2 )]
+transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 3, 0, -62 )
+
+[node name="Goomba8" parent="Goombas/Surrounding Peach" instance=ExtResource( 2 )]
+transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -3, 0, -65 )
+
+[node name="Goomba9" parent="Goombas/Surrounding Peach" instance=ExtResource( 2 )]
+transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -2, 0, -62 )
+
+[node name="Goomba10" parent="Goombas/Surrounding Peach" instance=ExtResource( 2 )]
+transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -2, 0, -69 )
+
+[node name="Goomba11" parent="Goombas/Surrounding Peach" instance=ExtResource( 2 )]
+transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 2, 0, -69 )
+
+[node name="Goomba12" parent="Goombas/Surrounding Peach" instance=ExtResource( 2 )]
+transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 3, 0, -66 )
+
+[node name="Goomba13" parent="Goombas/Surrounding Peach" instance=ExtResource( 2 )]
+transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 1, 0, -63 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0 )
+
+[node name="CSGBox" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, -26 )
+use_collision = true
+width = 4.0
+depth = 60.0
+material = SubResource( 1 )
+
+[node name="CSGBox2" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, -66 )
+use_collision = true
+width = 20.0
+depth = 20.0
+material = SubResource( 1 )
+
+[node name="Peach" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -66 )
+script = ExtResource( 6 )
+
+[node name="Peach" type="Sprite3D" parent="Peach"]
+transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 1, 0, 1.55, 0 )
+billboard = 1
+texture = ExtResource( 4 )
+
+[node name="NotPeach" type="Sprite3D" parent="Peach"]
+transform = Transform( 2.5, 0, 0, 0, 2.5, 0, 0, 0, 1, 0, 2, 0 )
+visible = false
+billboard = 1
+texture = ExtResource( 8 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Peach"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+shape = SubResource( 2 )
+
+[node name="GunCockSFX" type="AudioStreamPlayer3D" parent="Peach"]
+stream = ExtResource( 9 )
+unit_db = 80.0
+
+[node name="SecretEnding1" type="Area" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="SecretEnding1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -30, 0 )
+shape = SubResource( 3 )
+
+[node name="SecretEnding2" type="Area" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 30, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="SecretEnding2"]
+shape = SubResource( 3 )
+
+[connection signal="finished" from="Peach/GunCockSFX" to="Peach" method="_on_GunCockSFX_finished"]
+[connection signal="body_entered" from="SecretEnding1" to="." method="_on_SecretEnding1_body_entered"]
+[connection signal="body_entered" from="SecretEnding2" to="." method="_on_SecretEnding2_body_entered"]

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Microwave.wav-9130fab1aee423b47987cf138311c1ba.sample"
+
+[deps]
+
+source_file="res://Levels/House/Microwave.wav"
+dest_files=[ "res://.import/Microwave.wav-9130fab1aee423b47987cf138311c1ba.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

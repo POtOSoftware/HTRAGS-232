@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Flush.wav-5d4f1dd51e8b18cd85d86403f47028b4.sample"
+
+[deps]
+
+source_file="res://Levels/House_Part2/Flush.wav"
+dest_files=[ "res://.import/Flush.wav-5d4f1dd51e8b18cd85d86403f47028b4.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
