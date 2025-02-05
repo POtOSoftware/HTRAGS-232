@@ -23,13 +23,14 @@ func speak():
 		if DialogManager.counter == 6:
 			current_objective = false
 			quite_angry = true
+			
+			ObjectiveManager.step_number = "Step 10:"
+			ObjectiveManager.instruction = "Leave"
+			clerk_talked_to = true
 	elif quite_angry:
 		DialogManager.play_dialog(quite_angry_dialog, quite_angry_names, true)
 		
-		ObjectiveManager.step_number = "Step 10:"
-		ObjectiveManager.instruction = "Leave"
 		#$"../../Door".use_collision = true
-		clerk_talked_to = true
 	else:
 		if DialogManager.counter == 9:
 			EndingManager.end_game("You didn't even rob the store but you got arrested anyways. Nice going dumbass.")
