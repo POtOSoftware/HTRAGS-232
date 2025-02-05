@@ -94,6 +94,7 @@ func _physics_process(delta):
 	else:
 		$UI/Crosshair.color = Color(1, 1, 1, 1)
 		$UI/Dialog.visible = false
+		$UI/Dialog/Arrow.visible = true
 		$UI/InteractionHint.visible = false
 		DialogManager.counter = 0
 		DialogManager.name_counter = 0

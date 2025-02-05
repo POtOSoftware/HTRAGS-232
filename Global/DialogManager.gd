@@ -25,7 +25,9 @@ func play_dialog(in_dialog_text, in_dialog_name, reset : bool = false):
 	dialog_name = in_dialog_name[name_counter]
 	counter += 1
 	# Same as the name_counter code, this one's for the actual dialog rather than the speaker's name
+	
+	last_line_reached = counter == in_dialog_text.size() - 1
+	
 	if counter == in_dialog_text.size():
 		counter = in_dialog_text.size() - 1
-		last_line_reached = true
 	dialog_text = in_dialog_text[counter]

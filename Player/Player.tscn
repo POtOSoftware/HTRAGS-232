@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Comic Sans.ttf" type="DynamicFontData" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://Levels/House_Part2/Gun.png" type="Texture" id=13]
 [ext_resource path="res://Player/PauseMenu.gd" type="Script" id=14]
 [ext_resource path="res://Assets/pause.png" type="Texture" id=15]
+[ext_resource path="res://Player/arrow.png" type="Texture" id=16]
 
 [sub_resource type="CapsuleMesh" id=7]
 mid_height = 3.0
@@ -302,9 +303,6 @@ margin_left = -160.0
 margin_top = -88.0
 margin_right = 160.0
 script = ExtResource( 4 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="ColorRect" type="ColorRect" parent="UI/Dialog"]
 anchor_right = 1.0
@@ -320,9 +318,6 @@ margin_right = 113.0
 margin_bottom = 18.0
 custom_fonts/font = SubResource( 13 )
 text = "Ass"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="DialogText" type="Label" parent="UI/Dialog"]
 margin_left = 12.0
@@ -333,6 +328,13 @@ custom_fonts/font = SubResource( 12 )
 text = "Assest of the asses
 whatever that means"
 autowrap = true
+
+[node name="Arrow" type="TextureRect" parent="UI/Dialog"]
+margin_left = 309.0
+margin_top = 69.0
+margin_right = 319.0
+margin_bottom = 86.0
+texture = ExtResource( 16 )
 
 [node name="DebugMenu" type="Control" parent="UI"]
 pause_mode = 2
