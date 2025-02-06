@@ -6,7 +6,7 @@ var gravity = 20
 var jump = 10
 
 var mouse_sensitivity = SettingsManager.mouse_sensitivity
-var joystick_sensitivity = 3
+var joystick_sensitivity = mouse_sensitivity * 400
 
 var direction = Vector3()
 var h_velocity = Vector3()
@@ -22,7 +22,7 @@ var use_key_text
 
 const JOY_DEADZONE = 0.2
 const JOY_AXIS_RESCALE = 1.0/(1.0-JOY_DEADZONE)
-const JOY_ROTATION_MULTIPLIER = 200.0 * PI / 180.0
+var JOY_ROTATION_MULTIPLIER = joystick_sensitivity * PI / 180.0
 
 onready var head = $Head
 onready var camera = $Head/Camera
