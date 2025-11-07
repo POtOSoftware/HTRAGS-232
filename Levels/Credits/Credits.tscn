@@ -108,7 +108,7 @@ tracks/6/loop_wrap = true
 tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/keys = {
-"points": PoolRealArray( 64.5, -0.25, 0, 0.25, 0, 64.5, -0.25, 0, 0.25, 0, 64.5, -0.25, 0, 0.25, 0, 64.5, -0.25, 0, 0.25, 0, 64.5, -0.25, 0, 0.25, 0, 64.5, -0.25, 0, 0.25, 0, 64.5, -0.25, 0, 0.25, 0, 64.5, -0.25, 0, 0.25, 0 ),
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0, 8, 12, 12.5, 13, 13.3, 16.9, 17.2 )
 }
 tracks/7/type = "bezier"
@@ -339,10 +339,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -98.5
-margin_top = -11.5
-margin_right = 98.5
-margin_bottom = 11.5754
+margin_left = 61.5
+margin_top = 108.5
+margin_right = 258.5
+margin_bottom = 131.596
 custom_fonts/font = SubResource( 6 )
 text = "How To Rob A Gas Station"
 align = 1
@@ -357,10 +357,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -49.0
-margin_top = 180.0
-margin_right = 49.0001
-margin_bottom = 229.0
+margin_left = 111.0
+margin_top = 300.0
+margin_right = 209.0
+margin_bottom = 349.0
 text = "Created By:
 Kyle Kailihiwa"
 align = 1
@@ -374,27 +374,24 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -95.5
-margin_top = 180.0
-margin_right = 95.5
-margin_bottom = 229.0
+margin_left = 64.5
+margin_top = 300.0
+margin_right = 383.5
+margin_bottom = 349.0
 text = "Suggested Some Endings:
-Retroboy Studios"
+B8S1L (formerly retroboystudios)"
 align = 1
 valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Yep" type="Label" parent="Credits"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -55.5
-margin_top = -150.0
-margin_right = 60.5
-margin_bottom = -126.999
+margin_left = 104.5
+margin_top = -30.0
+margin_right = 220.5
+margin_bottom = -6.99887
 text = "Yep, that's it"
 align = 1
 valign = 1
